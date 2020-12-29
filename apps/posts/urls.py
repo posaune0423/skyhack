@@ -4,5 +4,6 @@ from apps.posts import views
 
 app_name = 'posts'
 urlpatterns = [
-    path('', views.top)
+    path('', views.index),
+    path('1', views.show),
 ]
