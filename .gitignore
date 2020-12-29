@@ -16,3 +16,6 @@ myvenv
 
 # db
 db.sqlite3
+
+# django
+local_settings.py
