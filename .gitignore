@@ -13,3 +13,6 @@ myvenv
 # editor
 .idea
 .vscode
+
+# db
+db.sqlite3
