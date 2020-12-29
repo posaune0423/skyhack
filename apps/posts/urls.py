@@ -1,5 +1,8 @@
-from django.conf.urls import path
-from django.contrib.auth.decorators import login_required
+from django.urls import path
+
+from apps.posts import views
 
 app_name = 'posts'
-urlpatterns = []
+urlpatterns = [
+    path('', views.top)
+]
