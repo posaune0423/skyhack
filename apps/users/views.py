@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 from django.contrib.auth import login
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.views.generic import CreateView, UpdateView, DetailView
+from django.views.generic import CreateView, UpdateView
 
 from apps.posts.models import Post
 from apps.users.forms import SignUpForm
@@ -33,17 +33,18 @@ class Update(UpdateView):
 
 
 def index(request):
-    queryset = Post.objects.filter(
-        author=request.user.id
-    ).order_by('-created_at')[:5]
+    queryset = Post.objects \
+    .filter(author=request.user.id) \
+    .order_by('-created_at')[:5]
+
     return render(request, 'mypage/index.html', {'posts': queryset})
 
 
 def show(request, pk):
     user = User.objects.get(pk=pk)
-    posts = Post.objects.filter(
-        author=user.id
-    ).order_by('-created_at')[:5]
+    posts = Post.objects \
+    .filter(author=user.id) \
+    .order_by('-created_at')[:5]
 
     return render(request, 'users/show.html', {'selected_user': user, 'posts': posts})
 
