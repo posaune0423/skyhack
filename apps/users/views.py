@@ -24,7 +24,7 @@ class Create(CreateView):
 
 class Update(UpdateView):
     model = User
-    fields = ('thumbnail', 'name', 'email', 'bio')
+    fields = ('thumbnail', 'username', 'email', 'bio')
     template_name = 'mypage/profile.html'
     success_url = '/mypage/'
 

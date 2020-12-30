@@ -10,7 +10,7 @@
                 <img src="{{ selected_user.thumbnail.url }}" alt=""
                      class="trim-img-circle">
                 <div class="bio">
-                    <p>{{ selected_user.name }}</p>
+                    <p>{{ selected_user.username }}</p>
                     <p>{{ selected_user.bio }}</p>
                 </div>
                 {% if user.id == selected_user.id %}
