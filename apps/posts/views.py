@@ -35,7 +35,7 @@ class Search(ListView):
 
         if q_word:
             object_list = Post.objects \
-                              .filter(Q(title__icontains=q_word) | Q(author__username__icontains=q_word)) \
+                              .filter(Q(title__icontains=q_word) | Q(author__name__icontains=q_word)) \
                               .order_by('-created_at')[:6]
         else:
             object_list = None

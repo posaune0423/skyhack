@@ -5,9 +5,9 @@ from .models import User
 
 
 class UserAdmin(UserAdmin):
-    list_display = ('username', 'email', 'date_joined')
+    list_display = ('name', 'email', 'date_joined')
     list_filter = ['date_joined']
-    search_fields = ['username']
+    search_fields = ['name']
 
 
 admin.site.register(User, UserAdmin)
