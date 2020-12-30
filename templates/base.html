@@ -13,8 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static "css/style.css" %}">
 
-<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"-->
-<!--    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"-->
+    <!--    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-carousel@0.18.0/dist/vue-carousel.min.js"></script>
@@ -34,102 +34,16 @@
 
 <div id="app">
 
-    <div id="slideout-menu" v-bind:class="{ open:isOpen }">
-        <h3>Skyhack</h3>
-        <div class="user_part"
-             style="justify-content: center; margin-bottom: 10px;">
-            <a href="/mypage/">
-                <img src="{{ user.thumbnail.url }}" width="40px"
-                     class="trim-img-circle" alt="">
-            </a>
-            <span>{{ user.username }}</span>
-        </div>
-        <ul>
-            <li><a href="/search/">Search</a></li>
-            <li><a href="/mypage/profile/">Profile</a></li>
-            <li><a href="/mypage/post/create/">Write a Reivew</a></li>
-            <li><a href="/logout/">Log out</a></li>
-        </ul>
-    </div>
+    <!--  Header Part  -->
+    {% include "includes/header.html" %}
+    {% include "includes/slideout.html" %}
 
-    <!-- Navbar -->
-    <div class="nav_container">
-        <div class="wrapper">
-            <nav>
-                <div class="logo"><a href="/posts"><img src="{% static "images/logo.svg" %}" alt=""></a></div>
-                <ul class="home_nav pc">
-                    {% if user.is_authenticated %}
-                    <li><a href="/search/"><img src="{% static "images/search.svg" %}" alt=""></a></li>
-
-                    <li><a href="/mypage/notification/"><img src="{% static "images/bell.svg" %}" alt=""></a></li>
-
-                    <li><a href="/mypage/"><img src="{{ user.thumbnail.url }}" alt=""
-                                                class="trim-img-circle" width="58px" height="58px"></a></li>
-                    <li><a href="/logout/">logout</a></li>
-                    {% else %}
-                    <li><a href="/signup/">sign up</a></li>
-                    {% endif %}
-                </ul>
-                <ul class="home_nav sp">
-                    {% if user.is_authenticated == false %}
-                    <li>
-                        <div class="signup_btn"><a href="/signup/" class="btn_dark">signup</a></div>
-                    </li>
-                    {% endif %}
-                    <li  v-on:click='isOpen=!isOpen'><img src="{% static "images/bars-solid.svg" %}" alt="" width="26px" id="menu-icon"></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-
-
-    <!-- Modal -->
-    <div class="profile_modal" id="profile_modal" v-bind:class="{ 'hidden':!isModalOpen }">
-        <div class="wrapper">
-            <div class="user_part"><img src="{{ user.thumbnail.url }}" width="40px"
-                                        class="trim-img-circle" alt="">
-                <span>{{ user.username }}</span>
-            </div>
-            <ul>
-                <li><a href="/mypage/profile/">Profile</a></li>
-                <li><a href="/posts/create/">Create a new post</a></li>
-                <li><a href="/logout/">Log out</a></li>
-            </ul>
-        </div>
-    </div>
-
-
-    <!-- Overlay -->
-    <div class="overlay hidden" v-bind:class="{ 'hidden':!isOpen }" v-on:click="isOpen=!isOpen"></div>
-
-
-
+    <!--  Body Part  -->
     {% block body %}
     {% endblock %}
 
-    <!-- Footer -->
-    <footer>
-        <div class="wrapper">
-            <div class="social_link">
-                <ul>
-                    <li><a href="#"><img src="{% static "images/twitter.svg" %}" alt=""></a></li>
-                    <li><a href="https://github.com/posaune0423"><img src="{% static "images/github.svg" %}"
-                        alt=""></a>
-                    </li>
-                    <li><a href="https://www.instagram.com/posaune0423"><img
-                            src="{% static "images/instagram.svg" %}" alt=""></a></li>
-                </ul>
-            </div>
-            <div class="links">
-                <ul>
-                    <li><a href="#">Sitemap</a></li>
-                    <li><a href="#">Privacy</a></li>
-                    <li><a href="#">Terms of Use</a></li>
-                </ul>
-            </div>
-            <p>©SkyHack All rights reserved</p>
-        </div>
-    </footer>
+    <!--  Footer Part  -->
+    {% include "includes/footer.html" %}
 </div>
 
 <script>
@@ -144,8 +58,8 @@
                 isOpen: false,
                 isModalOpen: false
             }
-        }})
+        }
+    })
 </script>
 </body>
-
 </html>

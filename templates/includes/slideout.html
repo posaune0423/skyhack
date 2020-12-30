@@ -1,0 +1,20 @@
+<div id="slideout-menu" v-bind:class="{ open:isOpen }">
+    <h3>Skyhack</h3>
+    <div class="user_part"
+         style="justify-content: center; margin-bottom: 10px;">
+        <a href="/mypage/">
+            <img src="{{ user.thumbnail.url }}" width="40px"
+                 class="trim-img-circle" alt="">
+        </a>
+        <span>{{ user.username }}</span>
+    </div>
+    <ul>
+        <li><a href="/search/">Search</a></li>
+        <li><a href="/mypage/profile/">Profile</a></li>
+        <li><a href="/mypage/post/create/">Write a Reivew</a></li>
+        <li><a href="/logout/">Log out</a></li>
+    </ul>
+</div>
+
+
+<div class="overlay" v-bind:class="{ 'hidden':!isOpen }" v-on:click="isOpen=!isOpen"></div>
