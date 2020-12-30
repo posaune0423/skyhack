@@ -12,8 +12,8 @@ from apps.users.models import User
 class Create(CreateView):
     form_class = SignUpForm
     model = User
-    template_name = "signup.html"
-    success_url = "/login/"
+    template_name = 'signup.html'
+    success_url = '/login/'
 
     def form_valid(self, form):
         user = form.save()  # save form info

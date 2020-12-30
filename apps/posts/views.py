@@ -51,14 +51,14 @@ class Show(DetailView):
 class Create(CreateView):
     model = Post
     form_class = PostForm
-    template_name = "mypage/create.html"
-    success_url = "/mypage/"
+    template_name = 'mypage/create.html'
+    success_url = '/mypage/'
 
 
 class Update(UpdateView):
     model = Post
     form_class = PostForm
-    template_name = "mypage/edit.html"
+    template_name = 'mypage/edit.html'
 
 
 def top(request):
