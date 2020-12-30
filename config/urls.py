@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('posts/', include('apps.posts.urls')),
     path('users/<int:id>', apps.users.views.show),
+    path('mypage/',include('apps.mypage.urls')),
     path('', apps.posts.views.top)
 ]
