@@ -4,4 +4,11 @@
 
 {% block body %}
 <h1>index page in posts</h1>
+
+<ul>
+    {% for post in posts %}
+        <li>{{ post.title }}</li>
+    {% endfor %}
+</ul>
+
 {% endblock %}

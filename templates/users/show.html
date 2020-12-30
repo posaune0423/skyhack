@@ -4,4 +4,13 @@
 
 {% block body %}
 <h1>detail page in users</h1>
+
+<p>{{ user.username }}</p>
+
+<ul>
+    {% for post in posts %}
+        <li>{{ post.title }}</li>
+    {% endfor %}
+</ul>
+
 {% endblock %}
