@@ -1,0 +1,14 @@
+{% load static %}
+{% load utils %}
+
+<span class="stars">
+    {% for file_id in ""|rjust:post.rate %}
+    <img src="{% static "images/fullstar.svg" %}" alt="">
+    {% endfor %}
+    {% with notrate=post.rate|subtract:5 %}
+    {% for file_id in ""|rjust:notrate %}
+    <img src="{% static "images/empty_star.svg" %}" alt="">
+    {% endfor %}
+    {% endwith %}
+    <span>{{ post.rate }}.0</span>
+</span>

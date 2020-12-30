@@ -3,5 +3,44 @@
 {% load static %}
 
 {% block body %}
-<h1>Hello World !!</h1>
+    <!-- Hero Panel -->
+    <header>
+        <div class="wrapper">
+            <div class="hero_content">
+                <h1>Hack The Sky</h1>
+                <p>SkyHack, where the information about all airports in the world accumlate.Here are all things you want
+                    to
+                    know about the airport</p>
+                <div class="guest_btn"><a href="/signup/" class="btn_dark">Sign Up</a></div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Reviewer Part -->
+    <div class="reviewer_container">
+        <div class="wrapper">
+            <div class="reviewer_photo"><img src="{% static "images/human_180x.svg" %}" alt="reviewer" width="200px">
+            </div>
+            <div class="review_content">
+                <p>“SkyHack is awesome. Information is always up to date.</br>It’s easy to know which airport is the
+                    best
+                    according to the trip plan.”</p>
+                <p>Michael, J, Cat Sr. Design Manager at Sample .Inc</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supporter Part -->
+    <div class="supporter_container">
+        <div class="wrapper">
+            <h2>SkyHack is proud supported by:</h2>
+            <div class="supporter_logo">
+                <img src="{% static "images/company1.svg" %}" alt="">
+                <img src="{% static "images/company2.svg" %}" alt="">
+                <img src="{% static "images/company3.svg" %}" alt="">
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
