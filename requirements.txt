@@ -1,0 +1,7 @@
+django
+gunicorn
+psycopg2-binary
+pylint
+pyformat
+orator
+Pillow
