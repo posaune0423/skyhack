@@ -9,9 +9,9 @@ from config import settings
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
-                  path('login/', LoginView.as_view(template_name='login.html'), name='login'),
+                  path('login/', LoginView.as_view(template_name='login.html')),
                   path('logout/', LogoutView.as_view()),
-                  path('signup/', apps.users.views.Create.as_view(), name='signup'),
+                  path('signup/', apps.users.views.Create.as_view()),
                   path('posts/', include('apps.posts.urls')),
                   path('search/', apps.posts.views.Search.as_view()),
                   path('users/<int:pk>', apps.users.views.show),
