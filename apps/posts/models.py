@@ -24,5 +24,9 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     rate = models.IntegerField(choices=RATES)
 
+    class Meta:
+        db_table = 'posts'
+        verbose_name_plural = 'Posts'
+
     def __str__(self):
         return self.title
