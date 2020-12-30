@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 import apps.posts.views
+import apps.users.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('posts/', include('apps.posts.urls')),
+    path('users/<int:id>', apps.users.views.show),
     path('', apps.posts.views.top)
 ]
