@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
 
 from apps.orater.post import Post
 
@@ -7,6 +8,7 @@ def top(request):
     return render(request, 'index.html')
 
 
+@login_required
 def index(request):
     posts = Post \
         .order_by('pub_date', 'desc') \
@@ -16,6 +18,7 @@ def index(request):
     return render(request, 'posts/index.html', {'posts': posts})
 
 
+@login_required
 def show(request, id):
     post = Post \
         .where('id', id) \
@@ -23,7 +26,7 @@ def show(request, id):
 
     return render(request, 'posts/show.html', {'post': post})
 
-
+@login_required
 def create(request, params):
     post = {
         'title': params['title'],
@@ -43,6 +46,7 @@ def create(request, params):
         .insert(post)
 
 
+@login_required
 def update(request, id, params):
     params = {
         'title': params['title'],
@@ -61,5 +65,8 @@ def update(request, id, params):
         .update(params)
 
 
+@login_required
 def delete(request, id):
     Post.where('id', id).delete()
+
+    return redirect('/mypage/')
