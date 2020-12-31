@@ -1,64 +1,67 @@
 {% extends "base.html" %}
 {% block title %}SkyHack | My page {% endblock %}
 {% load static %}
+{% load utils %}
 
 {% block body %}
-<!-- Content from here -->
-<div class="profile_container">
-    <div class="wrapper">
-        <div class="main_profile">
-            <img src="{{ user.thumbnail.url }}" alt="" class="trim-img-circle">
-            <div class="bio">
-                <p>{{ user.username }}</p>
-                <p>{{ user.bio }}</p>
-            </div>
-            <div>
+    <!-- Content from here -->
+    <div class="profile_container">
+        <div class="wrapper">
+            <div class="main_profile">
+                <img src="{{ user.thumbnail.url }}" alt="" class="trim-img-circle">
+                <div class="bio">
+                    <p>{{ user.username }}</p>
+                    <p>{{ user.bio }}</p>
+                </div>
+                <div>
                 <span style="cursor: pointer" class="toggle_profile pc" v-on:click="isModalOpen=!isModalOpen">
                     <img src="{% static "images/cog-solid.svg" %}" style="width: 32px !important;">
                 </span>
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="mypost">
-            <p>Published</p>
-            <div class="mypost_container">
-                {% for post in posts %}
-                <div class="post_card" style="padding-bottom: 10px">
-                    <a href="/posts/{{ post.id }}">
-                        <img src="{{ post.image1.url }}" class="rounded" width="340px" height="160px" alt="">
-                        <div class="post_content" style="padding-bottom: 0;">
-                            <h3>{{ post.title }}</h3>
-                            <div>
-                                {% include "includes/star.html" %}
-                            </div>
-                            <div class="excerpt">
-                                <p>{{ post.body |truncatewords:12 }} (more)</p>
-                            </div>
-                            <div class="card_bottom">
-                                <div class="tag">
-                                    {{ post.pub_date | date:"d/m/Y" }}
-                                </div>
-                                <div class="reviewer">
-                                    <img src="
-                                                    {{ post.author.thumbnail.url }}" width="32px"
-                                         height="32px" class="trim-img-circle" alt="">
-                                    <span>{{ post.author }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <p class="btn-container">
-                        <a href="create/{{ post.id }}"><i class="fas fa-edit"></i></a>
-                        <a href="delete/{{ post.id }}}"><i class="fas fa-trash-alt"></i></a>
-                    </p>
                 </div>
+            </div>
+
+            <hr>
+
+            <h3 style="margin-left: 20px; margin-top: 20px; margin-bottom: 20px;">Your Reviews</h3>
+            <div class="comment-container">
+
+
+                {% for review in reviews %}
+                    <div class="thread-container">
+                        <div class="commentter-info">
+                            <a href="/mypage/">
+                                <img src="{{ review.author.thumbnail.url }}"
+                                     class="trim-img-circle" alt="">
+                            </a>
+                            <span>{{ review.author }}</span>
+                        </div>
+                        <p class="comment-date">{{ review.created_at | date:"d/m/Y" }}</p>
+                        <span class="stars">
+                            {% for file_id in ""|rjust:review.rate %}
+                                <img src="{% static 'images/fullstar.svg' %}" alt="">
+                            {% endfor %}
+                            {% with notrate=review.rate|subtract:5 %}
+                                {% for file_id in ""|rjust:notrate %}
+                                    <img src="{% static 'images/empty_star.svg' %}" alt="">
+                                {% endfor %}
+                            {% endwith %}
+                            <span>{{ review.rate }}.0</span>
+                        </span>
+
+                        <div class="comment-content">
+                            <h4>{{ review.title }}</h4>
+                            <p>{{ review.body }}</p>
+                        </div>
+
+                        <p class="btn-container">
+                            <a href="/reviews/{{ review.id }}/edit"><i class="fas fa-edit"></i></a>
+                            <a href="/reviews/{{ review.id }}/delete"><i class="fas fa-trash-alt"></i></a>
+                        </p>
+                    </div>
                 {% endfor %}
             </div>
-        </div>
 
+        </div>
     </div>
-</div>
-<!-- End Content -->
+    <!-- End Content -->
 {% endblock %}

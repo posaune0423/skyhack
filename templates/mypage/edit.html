@@ -1,92 +1,28 @@
 {% extends "base.html" %}
-{% block title %}SkyHack | Create New {% endblock %}
+{% block title %}SkyHack | Edit Profile {% endblock %}
 {% load static %}
-{% load widget_tweaks %}
 
 {% block body %}
-<div class="post-form-container">
-    <h2 style="margin-top: 40px; margin-left: 40px;">Create New Post</h2>
-    <form action="" method="post" enctype="multipart/form-data" style="margin-top: 40px;">
-        {% csrf_token %}
-        <div class="profile_form post-form">
-            <div>
-                <span>{{ form.title.label_tag }}</span>
+    <div class="post-form-container">
+        <h2 style="margin-top: 40px; margin-left: 40px;">Update your profile</h2>
+        <form action="" method="post" enctype="multipart/form-data" style="margin-top: 40px;">
+            {% csrf_token %}
+            <div class="profile_form post-form">
+                {{ form.non_field_errors }}
+                {% for field in form %}
+                    <div>
+                        <span>{{ field.label_tag }}</span>
+                    </div>
+                    <div>
+                        {{ field }}
+                    </div>
+                    {% if field.help_text %}
+                        <span class="helptext">{{ field.help_text }}</span>
+                    {% endif %}
+                    {{ field.errors }}
+                {% endfor %}
+                <button type="submit" class="btn_dark" style="margin: 20px 0px; text-align: right">Save</button>
             </div>
-            <div style="margin-bottom: 10px">
-                {{ form.title | attr:"placeholder:enter your title"}}
-            </div>
-            <div>
-                <span>{{ form.body.label_tag }}</span>
-            </div>
-            <div style="margin-bottom: 10px">
-                {{ form.body | attr:"placeholder:write your experience"}}
-            </div>
-            <div>
-                <span>{{ form.pub_date.label_tag }}</span>
-            </div>
-            <div style="margin-bottom: 10px">
-                {{ form.pub_date | attr:"placeholder:e.g. 2020-04-07" }}
-            </div>
-            <div>
-                <span>{{ form.author.label_tag }}</span>
-            </div>
-
-            <div style="margin-bottom: 10px">
-                {{ form.author }}
-            </div>
-            <div>
-                <span>{{ form.image_path.label_tag }}</span>
-            </div>
-            <div style="margin-bottom: 10px">
-                {{ form.image_path }}
-            </div>
-            <div>
-                <span>{{ form.image_path2.label_tag }}</span>
-            </div>
-            <div style="margin-bottom: 10px">
-                {{ form.image_path2 }}
-            </div>
-            <div>
-                <span>{{ form.image_path3.label_tag }}</span>
-            </div>
-            <div style="margin-bottom: 10px">
-                {{ form.image_path3 }}
-            </div>
-            <div>
-                <span>{{ form.image_path4.label_tag }}</span>
-            </div>
-            <div style="margin-bottom: 10px">
-                {{ form.image_path4 }}
-            </div>
-            <div>
-                <span>{{ form.image_path5.label_tag }}</span>
-            </div>
-            <div style="margin-bottom: 10px">
-                {{ form.image_path5 }}
-            </div>
-            <div>
-                <span>{{ form.country.label_tag }}</span>
-            </div>
-            <div style="margin-bottom: 10px">
-                {{ form.country | attr:"placeholder:e.g. Japan"}}
-            </div>
-            <div>
-                <span>{{ form.rate.label_tag }}</span>
-            </div>
-            <div style="margin-bottom: 10px">
-                {{ form.rate }}
-            </div>
-
-
-            {% if form.errors %}
-            {% for field in form %}
-            {% for error in field.errors %}
-            <p>{{ error }}</p>
-            {% endfor %}
-            {% endfor %}
-            {% endif %}
-            <button type="submit" class="btn_dark" style="margin: 20px 0px; text-align: right">Submit</button>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
 {% endblock %}

@@ -5,7 +5,7 @@
 
 {% block body %}
 <div class="post-form-container">
-    <h2 style="margin-top: 40px; margin-left: 40px;">Create New Post</h2>
+    <h2 style="margin-top: 40px; margin-left: 40px;">Edit your review</h2>
     <form action="" method="post" enctype="multipart/form-data" style="margin-top: 40px;">
         {% csrf_token %}
         <div class="profile_form post-form">
@@ -34,40 +34,10 @@
                 {{ form.author }}
             </div>
             <div>
-                <span>{{ form.image1.label_tag }}</span>
+                <span>{{ form.airport.label_tag }}</span>
             </div>
             <div style="margin-bottom: 10px">
-                {{ form.image1 }}
-            </div>
-            <div>
-                <span>{{ form.image2.label_tag }}</span>
-            </div>
-            <div style="margin-bottom: 10px">
-                {{ form.image2 }}
-            </div>
-            <div>
-                <span>{{ form.image3.label_tag }}</span>
-            </div>
-            <div style="margin-bottom: 10px">
-                {{ form.image3 }}
-            </div>
-            <div>
-                <span>{{ form.image4.label_tag }}</span>
-            </div>
-            <div style="margin-bottom: 10px">
-                {{ form.image4 }}
-            </div>
-            <div>
-                <span>{{ form.image5.label_tag }}</span>
-            </div>
-            <div style="margin-bottom: 10px">
-                {{ form.image5 }}
-            </div>
-            <div>
-                <span>{{ form.country.label_tag }}</span>
-            </div>
-            <div style="margin-bottom: 10px">
-                {{ form.country | attr:"placeholder:e.g. Japan"}}
+                {{ form.airport }}
             </div>
             <div>
                 <span>{{ form.rate.label_tag }}</span>

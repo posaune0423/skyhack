@@ -5,7 +5,7 @@ from .models import User
 
 
 class UserAdmin(UserAdmin):
-    list_display = ('username', 'email', 'date_joined')
+    list_display = ('username', 'email', 'date_joined', 'thumbnail')
     list_filter = ['date_joined']
     search_fields = ['username']
 

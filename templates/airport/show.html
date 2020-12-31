@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}SkyHack | {{ post.title }}{% endblock %}
+{% load static %}
+{% load utils %}
+
+
+{% block body %}
+    <!-- Post Detail -->
+    <div class="image_container">
+        <div class="top_image pc"><img src="{{ airport.image1.url }}" alt=""></div>
+        <div class="remains_image pc">
+            <div><img src="{{ airport.image2.url }}" alt=""></div>
+            <div><img src="{{ airport.image3.url }}" alt=""></div>
+        </div>
+        <div class="remains_image pc">
+            <div><img src="{{ airport.image4.url }}" alt=""></div>
+            <div><img src="{{ airport.image5.url }}" alt=""></div>
+        </div>
+
+        <carousel :per-page="1">
+            <slide><img src="{{ airport.image1.url }}" alt=""></slide>
+            <slide><img src="{{ airport.image2.url }}" alt=""></slide>
+            <slide><img src="{{ airport.image3.url }}" alt=""></slide>
+            <slide><img src="{{ airport.image4.url }}" alt=""></slide>
+            <slide><img src="{{ airport.image5.url }}" alt=""></slide>
+        </carousel>
+    </div>
+
+    <div class="review_container">
+        <div class="wrapper">
+            <div class="review_content">
+                <h2>{{ airport.title }}</h2>
+                <div class="address">{{ airport.country }}</div>
+                <div class="rating">
+                    <span class="stars">
+                        {% for file_id in ""|rjust:airport.rate %}
+                            <img src="{% static 'images/fullstar.svg' %}" alt="">
+                        {% endfor %}
+                        {% with notrate=airport.rate|subtract:5 %}
+                            {% for file_id in ""|rjust:notrate %}
+                                <img src="{% static 'images/empty_star.svg' %}" alt="">
+                            {% endfor %}
+                        {% endwith %}
+                        <span>{{ airport.rate }}.0</span>
+                    </span>
+                </div>
+                <div class="tag" style="margin-top: 10px;">{{ airport.created_at | date:"d/m/Y" }}</div>
+                <div class="review_body">
+                    {{ airport.body | linebreaksbr }}
+                </div>
+            </div>
+            <div class="map_info">
+                <h2>Location</h2>
+                <div class="frame-container">
+                    <iframe
+                            src="https://maps.google.co.jp/maps?output=embed&q={{ airport.title | lower }}"
+                            frameborder="0"
+                            allowfullscreen=""
+                            aria-hidden="false"
+                            tabindex="0">
+
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if reviews %}
+        <div class="comment-container">
+            {% for review in reviews %}
+                <div class="thread-container">
+                    <div class="commentter-info">
+                        <a href="/mypage/">
+                            <img src="{{ review.author.thumbnail.url }}"
+                                 class="trim-img-circle" alt="">
+                        </a>
+                        <span>{{ review.author }}</span>
+                    </div>
+                    <p class="comment-date">{{ review.created_at | date:"d/m/Y" }}</p>
+                    <span class="stars">
+                    {% for file_id in ""|rjust:review.rate %}
+                        <img src="{% static 'images/fullstar.svg' %}" alt="">
+                    {% endfor %}
+                        {% with notrate=review.rate|subtract:5 %}
+                            {% for file_id in ""|rjust:notrate %}
+                                <img src="{% static 'images/empty_star.svg' %}" alt="">
+                            {% endfor %}
+                        {% endwith %}
+                        <span>{{ review.rate }}.0</span>
+                </span>
+
+                    <div class="comment-content">
+                        <h4>{{ review.title }}</h4>
+                        <p>{{ review.body }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

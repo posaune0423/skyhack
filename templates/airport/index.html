@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Post List{% endblock %}
+{% block title %} SkyHack | Post List {% endblock %}
 {% load static %}
 {% load utils %}
 
@@ -7,9 +7,8 @@
 
     <!-- Filter Box -->
     <div class="filter_box">
-        <form action="" method="get" role="search">
-            <a type="submit"><img src="{% static " images/pin.svg" %}" alt=""></a>
-            <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Search Post...">
+        <form action="" method="get"><img src="{% static "images/pin.svg" %}" alt="">
+            <input type="text" name="country" value="{{ request.GET.q }}" placeholder="filter by country">
         </form>
     </div>
 
@@ -46,9 +45,7 @@
         </div>
     {% else %}
         <div class="notfound" style="height: calc(100vh - 348px)">
-        {% if request.GET.q %}
             <h3 style="text-align: center;">Sorry We couldn't find that airport</h3>
-        {% endif %}
         </div>
     {% endif %}
 {% endblock %}

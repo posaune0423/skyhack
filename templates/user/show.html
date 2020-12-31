@@ -14,39 +14,37 @@
                     <p>{{ selected_user.bio }}</p>
                 </div>
                 {% if user.id == selected_user.id %}
-                <div>
+                    <div>
                     <span style="cursor: pointer" class="toggle_profile" v-on:click="isModalOpen=!isModalOpen">
-                        <img src="{% static "images/cog-solid.svg" %}" style="width: 32px !important;"></span>
-                </div>
+                        <img src="{% static 'images/cog-solid.svg' %}" style="width: 32px !important;"></span>
+                    </div>
                 {% endif %}
             </div>
 
             <hr>
 
             <div class="mypost">
-                <p>Published</p>
+                <p>My Reviews</p>
                 <div class="mypost_container">
-                    {% for post in posts %}
+                    {% for review in reviews %}
                         <div class="post_card">
-                            <a href="/posts/{{ post.id }}">
-                                <img src="{{ post.image1.url }}" class="rounded" width="340px" height="160px" alt="">
+                            <a href="/posts/{{ review.id }}">
+                                <img src="{{ review.image1.url }}" class="rounded" width="340px" height="160px" alt="">
                                 <div class="post_content">
-                                    <h3>{{ post.title }}</h3>
+                                    <h3>{{ review.title }}</h3>
                                     <div>
                                         {% include "includes/star.html" %}
                                     </div>
                                     <div class="excerpt">
-                                        <p>{{ post.body | truncatewords:12 }} (more)</p>
+                                        <p>{{ review.body | truncatewords:12 }} (more)</p>
                                     </div>
                                     <div class="card_bottom">
                                         <div class="tag">
-                                            {{ post.pub_date | date:"d/m/Y" }}
+                                            {{ review.created_at | date:"d/m/Y" }}
                                         </div>
                                         <div class="reviewer">
-                                            <img src="{{ post.author.thumbnail.url }}"
-                                                 width="32px"
-                                                 height="32px" class="trim-img-circle" alt="">
-                                            <span>{{ post.author }}</span>
+                                            <img src="{{ review.author.thumbnail.url }}" class="trim-img-circle" alt="">
+                                            <span>{{ review.author }}</span>
                                         </div>
                                     </div>
                                 </div>

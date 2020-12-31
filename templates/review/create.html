@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}SkyHack | Create New {% endblock %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block body %}
+    <div class="post-form-container">
+        <h2 style="margin-top: 40px; margin-left: 40px;">Create new review</h2>
+        <form action="" method="post" enctype="multipart/form-data" style="margin-top: 40px;">
+            {% csrf_token %}
+            <div class="profile_form post-form">
+                <div>
+                    <span>{{ form.title.label_tag }}</span>
+                </div>
+                <div style="margin-bottom: 10px">
+                    {{ form.title | attr:"placeholder:enter your title" }}
+                </div>
+                <div>
+                    <span>{{ form.body.label_tag }}</span>
+                </div>
+                <div style="margin-bottom: 10px">
+                    {{ form.body | attr:"placeholder:write your experience" }}
+                </div>
+                <div>
+                    <span>{{ form.created_at.label_tag }}</span>
+                </div>
+                <div style="margin-bottom: 10px">
+                    {{ form.created_at | attr:"placeholder:e.g. 2020-04-07" }}
+                </div>
+                <div>
+                    <span>{{ form.author.label_tag }}</span>
+                </div>
+                <div style="margin-bottom: 10px">
+                    {{ form.author }}
+                </div>
+                <div>
+                    <span>{{ form.airport.label_tag }}</span>
+                </div>
+                <div style="margin-bottom: 10px">
+                    {{ form.airport }}
+                </div>
+                <div>
+                    <span>{{ form.rate.label_tag }}</span>
+                </div>
+                <div style="margin-bottom: 10px">
+                    {{ form.rate }}
+                </div>
+
+
+                {% if form.errors %}
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            {{ field.label }}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
+                <button type="submit" class="btn_dark" style="margin: 20px 0px; text-align: right">Submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

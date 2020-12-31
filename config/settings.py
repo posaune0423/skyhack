@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     'widget_tweaks',
 
     # apps
-    'apps.posts',
-    'apps.users',
+    'apps.airport',
+    'apps.review',
+    'apps.user',
 ]
 
 MIDDLEWARE = [
@@ -71,7 +72,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             'libraries': {
-                'utils': 'apps.posts.templatetags.utils',
+                'utils': 'apps.review.templatetags.utils',
 
             },
         },
@@ -135,11 +136,11 @@ MEDIA_URL = '/media/'
 
 # login conf
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/posts/'
+LOGIN_REDIRECT_URL = '/home/'
 LOGOUT_REDIRECT_URL = '/'
 
 # for Substituting a custom User model
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'user.User'
 
 try:
     from .local_settings import *

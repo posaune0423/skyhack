@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
-from apps.posts.models import Post
+from apps.review.models import Review
 
 
-class PostAdmin(admin.ModelAdmin):
+class ReviewAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'rate', 'created_at')
     list_filter = ['created_at']
     search_fields = ['title']
@@ -12,4 +12,4 @@ class PostAdmin(admin.ModelAdmin):
         return self.title
 
 
-admin.site.register(Post, PostAdmin)
+admin.site.register(Review, ReviewAdmin)

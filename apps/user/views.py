@@ -4,9 +4,9 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic import CreateView, UpdateView
 
-from apps.posts.models import Post
-from apps.users.forms import SignUpForm
-from apps.users.models import User
+from apps.review.models import Review
+from apps.user.forms import SignUpForm
+from apps.user.models import User
 
 
 class Create(CreateView):
@@ -25,7 +25,7 @@ class Create(CreateView):
 class Update(UpdateView):
     model = User
     fields = ('thumbnail', 'username', 'email', 'bio')
-    template_name = 'mypage/profile.html'
+    template_name = 'mypage/edit.html'
     success_url = '/mypage/'
 
     def get_object(self):
@@ -33,21 +33,17 @@ class Update(UpdateView):
 
 
 def index(request):
-    queryset = Post.objects \
+    reviews = Review.objects \
     .filter(author=request.user.id) \
-    .order_by('-created_at')[:5]
+    .order_by('-created_at')[:4]
 
-    return render(request, 'mypage/index.html', {'posts': queryset})
+    return render(request, 'mypage/index.html', {'reviews': reviews})
 
 
 def show(request, pk):
     user = User.objects.get(pk=pk)
-    posts = Post.objects \
+    reviews = Review.objects \
     .filter(author=user.id) \
     .order_by('-created_at')[:5]
 
-    return render(request, 'users/show.html', {'selected_user': user, 'posts': posts})
-
-
-def create(request):
-    return render(request, 'mypage/create.html')
+    return render(request, 'users/show.html', {'selected_user': user, 'reviews': reviews})
