@@ -3,12 +3,16 @@
 <div class="nav_container">
     <div class="wrapper">
         <nav>
-            <div class="logo"><a href="/posts"><img src="{% static "images/logo.svg" %}" alt=""></a></div>
+            <div class="logo">
+                <a href="/posts">
+                    <img src="{% static 'images/logo.svg' %}" alt=""/>
+                </a>
+            </div>
             <ul class="home_nav pc">
                 {% if user.is_authenticated %}
-                <li><a href="/search/"><img src="{% static "images/search.svg" %}" alt=""></a></li>
+                <li><a href="/search/"><img src="{% static 'images/search.svg' %}" alt=""></a></li>
 
-                <li><a href="/mypage/notification/"><img src="{% static "images/bell.svg" %}" alt=""></a></li>
+                <li><a href="/mypage/notification/"><img src="{% static 'images/bell.svg' %}" alt=""></a></li>
 
                 <li><a href="/mypage/"><img src="{{ user.thumbnail.url }}" alt=""
                                             class="trim-img-circle" width="58px" height="58px"></a></li>
@@ -23,7 +27,7 @@
                     <div class="signup_btn"><a href="/signup/" class="btn_dark">signup</a></div>
                 </li>
                 {% endif %}
-                <li v-on:click='isOpen=!isOpen'><img src="{% static "images/bars-solid.svg" %}" alt="" width="26px"
+                <li v-on:click='isOpen=!isOpen'><img src="{% static 'images/bars-solid.svg' %}" alt="" width="22px"
                     id="menu-icon">
                 </li>
             </ul>

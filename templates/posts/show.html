@@ -4,53 +4,106 @@
 
 
 {% block body %}
-    <!-- Post Detail -->
-    <div class="image_container">
-        <div class="top_image pc"><img src="{{ post.image1.url }}" alt=""></div>
-        <div class="remains_image pc">
-            <div><img src="{{ post.image2.url }}" alt=""></div>
-            <div><img src="{{ post.image3.url }}" alt=""></div>
-        </div>
-        <div class="remains_image pc">
-            <div><img src="{{ post.image4.url }}" alt=""></div>
-            <div><img src="{{ post.image5.url }}" alt=""></div>
-        </div>
-
-        <carousel :per-page="1">
-            <slide><img src="{{ post.image1.url }}" alt=""></slide>
-            <slide><img src="{{ post.image2.url }}" alt=""></slide>
-            <slide><img src="{{ post.image3.url }}" alt=""></slide>
-            <slide><img src="{{ post.image4.url }}" alt=""></slide>
-            <slide><img src="{{ post.image5.url }}" alt=""></slide>
-          </carousel>
+<!-- Post Detail -->
+<div class="image_container">
+    <div class="top_image pc"><img src="{{ post.image1.url }}" alt=""></div>
+    <div class="remains_image pc">
+        <div><img src="{{ post.image2.url }}" alt=""></div>
+        <div><img src="{{ post.image3.url }}" alt=""></div>
+    </div>
+    <div class="remains_image pc">
+        <div><img src="{{ post.image4.url }}" alt=""></div>
+        <div><img src="{{ post.image5.url }}" alt=""></div>
     </div>
 
-    <div class="review_container">
-        <div class="wrapper">
-            <div class="review_content">
-                <h2>{{ post.title }}</h2>
-                <div class="address">{{ post.country }}</div>
-                <div class="rating">
-                    {% include "includes/star.html" %}
-                    <div class="reviewer"><a href="/users/{{ post.author_id }}"><img
-                            src="{{ post.author.thumbnail.url }}" class="trim-img-circle" width="32px"
-                            height="32px" alt=""><span>{{ post.author }}</span></a>
-                    </div>
-                </div>
-                <div class="tag" style="margin-top: 10px;">{{ post.pub_date | date:"d/m/Y" }}</div>
-                <div class="review_body">
-                    {{ post.body | linebreaksbr }}
+    <carousel :per-page="1">
+        <slide><img src="{{ post.image1.url }}" alt=""></slide>
+        <slide><img src="{{ post.image2.url }}" alt=""></slide>
+        <slide><img src="{{ post.image3.url }}" alt=""></slide>
+        <slide><img src="{{ post.image4.url }}" alt=""></slide>
+        <slide><img src="{{ post.image5.url }}" alt=""></slide>
+    </carousel>
+</div>
+
+<div class="review_container">
+    <div class="wrapper">
+        <div class="review_content">
+            <h2>{{ post.title }}</h2>
+            <div class="address">{{ post.country }}</div>
+            <div class="rating">
+                {% include "includes/star.html" %}
+                <div class="reviewer"><a href="/users/{{ post.author_id }}"><img
+                        src="{{ post.author.thumbnail.url }}" class="trim-img-circle" width="32px"
+                        height="32px" alt=""><span>{{ post.author }}</span></a>
                 </div>
             </div>
-            <div class="map_info">
-                <h2>Location</h2>
-                <div class="frame-container" style="text-align: center; padding-bottom: 40px;">
-                    <iframe
+            <div class="tag" style="margin-top: 10px;">{{ post.pub_date | date:"d/m/Y" }}</div>
+            <div class="review_body">
+                {{ post.body | linebreaksbr }}
+            </div>
+        </div>
+        <div class="map_info">
+            <h2>Location</h2>
+            <div class="frame-container" style="text-align: center; padding-bottom: 40px;">
+                <iframe
                         src="https://maps.google.co.jp/maps?output=embed&q={{ post.title | lower }}"
                         frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
                         tabindex="0"></iframe>
-                </div>
             </div>
         </div>
     </div>
+</div>
+
+<div class="comment-container">
+    <div class="thread-container">
+        <div class="commentter-info">
+            <img src="/media/no-user.jpg"
+                 class="trim-img-circle" alt="">
+            <span>David John</span>
+        </div>
+        <p class="comment-date">1 hour ago</p>
+        {% include "includes/star.html" %}
+
+        <div class="comment-content">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Ducimus similique corporis delectus, consequatur ad maiores accusantium
+                suscipit distinctio fugiat voluptatum itaque,
+                natus consequuntur illum quas earum minima debitis perferendis! Ut.</p>
+        </div>
+    </div>
+
+    <div class="thread-container">
+        <div class="commentter-info">
+            <img src="/media/no-user.jpg"
+                 class="trim-img-circle" alt="">
+            <span>David John</span>
+        </div>
+        <p class="comment-date">4 days ago</p>
+        {% include "includes/star.html" %}
+
+        <div class="comment-content">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Ducimus similique corporis delectus, consequatur ad maiores accusantium
+                suscipit distinctio fugiat voluptatum itaque,
+                natus consequuntur illum quas earum minima debitis perferendis! Ut.</p>
+        </div>
+    </div>
+
+    <div class="thread-container">
+        <div class="commentter-info">
+            <img src="/media/no-user.jpg"
+                 class="trim-img-circle" alt="">
+            <span>David John</span>
+        </div>
+        <p class="comment-date">1 weeks ago</p>
+        {% include "includes/star.html" %}
+
+        <div class="comment-content">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Ducimus similique corporis delectus, consequatur ad maiores accusantium
+                suscipit distinctio fugiat voluptatum itaque,
+                natus consequuntur illum quas earum minima debitis perferendis! Ut.</p>
+        </div>
+    </div>
+</div>
 {% endblock %}
