@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render
 from django.utils import timezone
@@ -41,6 +42,7 @@ class Search(ListView):
         return object_list
 
 
+@login_required
 def show(request, pk):
     airport = Airport.objects.get(id=pk)
     reviews = Review.objects \

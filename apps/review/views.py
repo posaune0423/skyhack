@@ -19,10 +19,6 @@ class Update(UpdateView):
     template_name = 'review/edit.html'
 
 
-def top(request):
-    return render(request, 'index.html')
-
-
 @login_required
 def delete(request, pk):
     post = get_object_or_404(Review, id=pk)

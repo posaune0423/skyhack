@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from __future__ import unicode_literals
 from django.contrib.auth import login
 from django.http import HttpResponseRedirect
@@ -32,18 +33,20 @@ class Update(UpdateView):
         return self.request.user
 
 
+@login_required
 def index(request):
     reviews = Review.objects \
-    .filter(author=request.user.id) \
-    .order_by('-created_at')[:4]
+                  .filter(author=request.user.id) \
+                  .order_by('-created_at')[:4]
 
     return render(request, 'mypage/index.html', {'reviews': reviews})
 
 
+@login_required
 def show(request, pk):
     user = User.objects.get(pk=pk)
     reviews = Review.objects \
-    .filter(author=user.id) \
-    .order_by('-created_at')[:5]
+                  .filter(author=user.id) \
+                  .order_by('-created_at')[:5]
 
     return render(request, 'users/show.html', {'selected_user': user, 'reviews': reviews})
