@@ -1,4 +1,3 @@
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import CreateView, UpdateView
 
@@ -19,7 +18,6 @@ class Update(UpdateView):
     template_name = 'review/edit.html'
 
 
-@login_required
 def delete(request, pk):
     post = get_object_or_404(Review, id=pk)
     if (request.user.id != post.author_id):
