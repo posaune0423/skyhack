@@ -1,7 +1,5 @@
 django
 gunicorn
-psycopg2-binary
 Pillow
 django-heroku
 django-widget-tweaks
-whitenoise
