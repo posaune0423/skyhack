@@ -23,18 +23,21 @@
                     <a href="/logout/">logout</a>
                 </li>
                 {% else %}
-                <li><a href="/signup/">sign up</a></li>
+                <li>
+                    <a href="/signup/" class="btn_dark">signup</a>
+                </li>
                 {% endif %}
             </ul>
             <ul class="home_nav sp">
-                {% if user.is_authenticated == false %}
+                {% if user.is_authenticated %}
+                <li v-on:click='isOpen=!isOpen'><img src="{% static 'images/bars-solid.svg' %}" alt="" width="22px"
+                                                     id="menu-icon">
+                </li>
+                {% else %}
                 <li>
                     <div class="signup_btn"><a href="/signup/" class="btn_dark">signup</a></div>
                 </li>
                 {% endif %}
-                <li v-on:click='isOpen=!isOpen'><img src="{% static 'images/bars-solid.svg' %}" alt="" width="22px"
-                                                     id="menu-icon">
-                </li>
             </ul>
         </nav>
     </div>
