@@ -996,6 +996,7 @@ header .hero_content {
 .comment-content p {
     margin-top: 10px;
     margin-bottom: 20px;
+    word-wrap: break-word;
 }
 
 .comment-content h4 {
