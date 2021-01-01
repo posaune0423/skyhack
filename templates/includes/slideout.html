@@ -11,10 +11,12 @@
     </div>
     <ul>
         <li><a href="/airports/search/">Search</a></li>
-        <li><a href="/mypage/profile/">Profile</a></li>
-        <li><a href="/reviews/create/">Write a Reivew</a></li>
         {% if user.is_authenticated %}
+        <li><a href="/mypage/profile/">Edit profile</a></li>
+        <li><a href="/reviews/create/">Write new review</a></li>
         <li><a href="/logout/">Log out</a></li>
+        {% else %}
+        <li><a href="/signup/">Signup</a></li>
         {% endif %}
     </ul>
 </div>
