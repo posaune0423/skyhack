@@ -19,4 +19,5 @@ db.sqlite3
 
 # django
 config/local_settings.py
-media/
+media
+staticfiles
