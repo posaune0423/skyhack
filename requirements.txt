@@ -1,7 +1,6 @@
 django
 gunicorn
 psycopg2-binary
-pylint
-pyformat
 Pillow
 django-heroku
+django-widget-tweaks
