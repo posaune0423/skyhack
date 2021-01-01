@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import CreateView, UpdateView
@@ -11,6 +13,13 @@ class Create(CreateView):
     form_class = ReviewForm
     template_name = 'review/create.html'
     success_url = '/mypage/'
+
+    def form_valid(self, form):
+        review = form.save(commit=False)
+        review.author = self.request.user        
+        review.save()
+
+        return redirect('/mypage/')
 
 
 class Update(UpdateView):

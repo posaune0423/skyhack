@@ -16,7 +16,7 @@ class Review(models.Model):
 
     title = models.CharField(max_length=150)
     body = models.TextField(blank=True)
-    created_at = models.DateTimeField('date created')
+    created_at = models.DateField('date created')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     airport = models.ForeignKey(Airport, on_delete=models.CASCADE, default="")
     rate = models.IntegerField(choices=RATES)
