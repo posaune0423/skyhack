@@ -128,9 +128,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-# static conf
+# staticfiles conf
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles')]
+STATIC_ROOT = [os.path.join(BASE_DIR, 'staticfiles')]
+
 
 # media conf
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -144,9 +146,13 @@ LOGOUT_REDIRECT_URL = '/'
 # for Substituting a custom User model
 AUTH_USER_MODEL = 'user.User'
 
-django_heroku.settings(locals())
 
 try:
     from .local_settings import *
 except ImportError:
     pass
+
+
+if DEBUG:
+    import django_heroku
+    django_heroku.settings(locals())
