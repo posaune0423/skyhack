@@ -580,6 +580,24 @@ header .hero_content {
     border-radius: 20px;
 }
 
+
+.post_card > a > img {
+    height: 160px;
+}
+
+@media screen and (min-width: 481px) {
+    .post_card > a > img {
+        width: 339px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .post_card > a > img {
+        width: calc(100vw - 36px);
+    }
+}
+
+
 .post_card > a {
     text-decoration: none;
     color: inherit;
