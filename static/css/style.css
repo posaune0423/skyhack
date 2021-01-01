@@ -102,6 +102,11 @@ body {
     font-size: 14px;
 }
 
+.user_part > img {
+    width: 40px;
+    height: 40px;
+}
+
 .profile_modal ul {
     list-style: none;
 }
