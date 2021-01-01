@@ -422,12 +422,25 @@ header .hero_content {
 }
 
 @media screen and (max-width: 480px) {
+    .reviewer_container .wrapper {
+        padding: 30px 10px;
+    }
+
     .supporter_container h2 {
         font-size: 20px;
     }
 
     .reviewer_photo {
         text-align: center;
+    }
+
+    .reviewer_photo  img{
+        width: 160px;
+        height: 160px;
+    }
+
+    .supporter_logo img {
+        width: 150px;
     }
 }
 
