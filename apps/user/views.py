@@ -1,5 +1,4 @@
 from django.contrib.auth.decorators import login_required
-from __future__ import unicode_literals
 from django.contrib.auth import login
 from django.http import HttpResponseRedirect
 from django.shortcuts import render

@@ -1,39 +1,45 @@
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.shortcuts import render
+from django.utils import timezone
+from django.views.generic import ListView
 
-from apps.orater.airport import Airport
-from apps.orater.review import Review
-
-
-@login_required
-def index(request):
-    country = request.GET.get('country')
-    if country:
-        airports = Airport \
-            .where('country', country) \
-            .take(6) \
-            .get()
-    else:
-        airports = Airport \
-            .order_by('created_at', 'desc') \
-            .take(6) \
-            .get()
-
-    return render(request, 'airport/index.html', {'airports': airports})
+from apps.airport.models import Airport
+from apps.review.models import Review
 
 
-@login_required
-def search(request):
-    target = request.GET.get('q')
-    if target:
-        airports = Airport \
-            .where('title', 'like', f'%{target}%') \
-            .order_by('created_at', 'desc') \
-            .get()
-    else:
-        airports = None
+class Index(ListView):
+    template_name = 'airport/index.html'
+    context_object_name = 'airports'
 
-    return render(request, 'search.html', {'airports': airports})
+    def get_queryset(self):
+        country = self.request.GET.get('country')
+
+        if country:
+            object_list = Airport.objects \
+                              .filter(country=country) \
+                              .order_by('-created_at')[:6]
+        else:
+            object_list = Airport.objects \
+                              .filter(created_at__lte=timezone.now()) \
+                              .order_by('-created_at')[:6]
+        return object_list
+
+
+class Search(ListView):
+    template_name = 'search.html'
+    context_object_name = 'airports'
+
+    def get_queryset(self):
+        q_word = self.request.GET.get('q')
+
+        if q_word:
+            object_list = Airport.objects \
+                              .filter(Q(title__icontains=q_word) | Q(body__icontains=q_word)) \
+                              .order_by('-created_at')[:6]
+        else:
+            object_list = None
+        return object_list
 
 
 @login_required
