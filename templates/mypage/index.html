@@ -15,7 +15,7 @@
                 </div>
                 <div>
                 <span style="cursor: pointer" class="toggle_profile pc" v-on:click="isModalOpen=!isModalOpen">
-                    <img src="{% static "images/cog-solid.svg" %}" style="width: 32px !important;">
+                    <img src="{% static 'images/cog-solid.svg' %}" style="width: 32px !important;">
                 </span>
                 </div>
             </div>
@@ -23,9 +23,9 @@
             <hr>
 
             <h3 style="margin-left: 20px; margin-top: 20px; margin-bottom: 20px;">Your Reviews</h3>
+
+            {% if reviews %}
             <div class="comment-container">
-
-
                 {% for review in reviews %}
                     <div class="thread-container">
                         <div class="commentter-info">
@@ -60,6 +60,9 @@
                     </div>
                 {% endfor %}
             </div>
+            {% else %}
+                <div style="height: calc(100vh - 474px);"></div>
+            {% endif %}
 
         </div>
     </div>
