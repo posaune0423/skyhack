@@ -4,3 +4,4 @@ psycopg2-binary
 pylint
 pyformat
 Pillow
+django-heroku
