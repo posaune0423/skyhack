@@ -14,6 +14,7 @@ class Index(ListView):
 
     def get_queryset(self):
         country = self.request.GET.get('country')
+        country = country.strip()
 
         if country:
             object_list = Airport.objects \
@@ -32,6 +33,7 @@ class Search(ListView):
 
     def get_queryset(self):
         q_word = self.request.GET.get('q')
+        q_word = q_word.strip()
 
         if q_word:
             object_list = Airport.objects \
