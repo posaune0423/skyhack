@@ -1,13 +1,9 @@
 # skyhack
 
-
-
-# skyhack
-
 This is my first Django application.
 
-This project is still on working, 
-I'll try to keep developing and add more and more features in the near future.   
+This project is still on working,
+I'll try to keep developing and add more and more features in the near future.
 
 
 ## how to run locally
@@ -23,15 +19,15 @@ $ python manage.py runserver
 ```
 
 ## how to deploy to Heroku
-This application is supposed to work on Heroku. 
+This application is supposed to work on Heroku.
 
-In order to do it, please run following commands 
+In order to do it, please run following commands
 ```
 $ heroku create <your app name>
 
 $ heroku config:set DISABLE_COLLECTSTATIC=1
 
-$ git push heroku main 
+$ git push heroku main
 
 $ heroku run python manage.py migrate
 
