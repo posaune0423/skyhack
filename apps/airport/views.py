@@ -14,11 +14,10 @@ class Index(ListView):
 
     def get_queryset(self):
         country = self.request.GET.get('country')
-        country = country.strip()
 
         if country:
             object_list = Airport.objects \
-                              .filter(country=country) \
+                              .filter(country=country.strip()) \
                               .order_by('-created_at')[:6]
         else:
             object_list = Airport.objects \
@@ -33,11 +32,10 @@ class Search(ListView):
 
     def get_queryset(self):
         q_word = self.request.GET.get('q')
-        q_word = q_word.strip()
 
         if q_word:
             object_list = Airport.objects \
-                              .filter(Q(title__icontains=q_word) | Q(body__icontains=q_word)) \
+                              .filter(Q(title__icontains=q_word.strip()) | Q(body__icontains=q_word.strip())) \
                               .order_by('-created_at')[:6]
         else:
             object_list = None
