@@ -16,7 +16,7 @@ class Create(CreateView):
 
     def form_valid(self, form):
         review = form.save(commit=False)
-        review.author = self.request.user        
+        review.author = self.request.user
         review.save()
 
         return redirect('/mypage/')
@@ -26,6 +26,7 @@ class Update(UpdateView):
     model = Review
     form_class = ReviewForm
     template_name = 'review/edit.html'
+    success_url = '/mypage/'
 
 
 @login_required
