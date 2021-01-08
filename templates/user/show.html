@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
+{% load utils %}
 {% load cloudinary %}
+
 {% block title %}SkyHack | My page {% endblock %}
 
 {% block body %}
@@ -8,52 +10,56 @@
     <div class="profile_container">
         <div class="wrapper">
             <div class="main_profile">
-                <img src="{% cloudinary_url selected_user.thumbnail %}" alt=""
-                     class="rounded-circle">
+                <img src="{% cloudinary_url selected_user.thumbnail %}" alt="" width="40px" class="rounded-circle">
                 <div class="bio">
                     <p>{{ selected_user.username }}</p>
                     <p>{{ selected_user.bio }}</p>
                 </div>
-                {% if user.id == selected_user.id %}
-                    <div>
-                    <span style="cursor: pointer" class="toggle_profile" v-on:click="isModalOpen=!isModalOpen">
-                        <img src="{% static 'images/cog-solid.svg' %}" style="width: 32px !important;"></span>
-                    </div>
-                {% endif %}
+                <div>
+                <span style="cursor: pointer" class="toggle_profile pc" v-on:click="isModalOpen=!isModalOpen">
+                    <img src="{% static 'images/cog-solid.svg' %}" style="width: 32px !important;">
+                </span>
+                </div>
             </div>
 
             <hr>
 
-            <div class="mypost">
-                <p>My Reviews</p>
-                <div class="mypost_container">
+            <h3 style="margin-left: 20px; margin-top: 20px; margin-bottom: 20px;">Your Reviews</h3>
+
+            {% if reviews %}
+                <div class="comment-container">
                     {% for review in reviews %}
-                        <div class="post_card">
-                            <a href="/posts/{{ review.id }}">
-                                <img src="{% cloudinary_url review.image1 %}" class="rounded" width="340px" height="160px" alt="">
-                                <div class="post_content">
-                                    <h3>{{ review.title }}</h3>
-                                    <div>
-                                        {% include "includes/star.html" %}
-                                    </div>
-                                    <div class="excerpt">
-                                        <p>{{ review.body | truncatewords:12 }} (more)</p>
-                                    </div>
-                                    <div class="card_bottom">
-                                        <div class="tag">
-                                            {{ review.created_at | date:"d/m/Y" }}
-                                        </div>
-                                        <div class="reviewer">
-                                            <img src="{% cloudinary_url review.author.thumbnail %}" class="rounded-circle" alt="">
-                                            <span>{{ review.author }}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+                        <div class="thread-container">
+                            <div class="commentter-info">
+                                <a href="/mypage/">
+                                    <img src="{% cloudinary_url review.author.thumbnail %}"
+                                         class="rounded-circle" alt="">
+                                </a>
+                                <span>{{ review.author }}</span>
+                            </div>
+                            <p class="comment-date">{{ review.created_at | date:"d/m/Y" }}</p>
+                            <span class="stars">
+                            {% for file_id in ""|rjust:review.rate %}
+                                <img src="{% static 'images/fullstar.svg' %}" alt="">
+                            {% endfor %}
+                                {% with notrate=review.rate|subtract:5 %}
+                                    {% for file_id in ""|rjust:notrate %}
+                                        <img src="{% static 'images/empty_star.svg' %}" alt="">
+                                    {% endfor %}
+                                {% endwith %}
+                                <span>{{ review.rate }}.0</span>
+                        </span>
+
+                            <div class="comment-content">
+                                <h5>{{ review.title }}</h5>
+                                <p>{{ review.body }}</p>
+                            </div>
                         </div>
                     {% endfor %}
                 </div>
-            </div>
+            {% else %}
+                <div style="height: calc(100vh - 474px);"></div>
+            {% endif %}
 
         </div>
     </div>
