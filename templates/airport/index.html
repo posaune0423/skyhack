@@ -19,7 +19,7 @@
             {% for airport in airports %}
                 <div class="post_card">
                     <a href="/airports/{{ airport.id }}">
-                        <img src="{% cloudinary_url airport.image1 %}" class="rounded" alt="">
+                        <img src="{% cloudinary_url airport.image1 %}" class="round" alt="">
                         <div class="post_content">
                             <h3>{{ airport.title }}</h3>
                             <span class="stars">
@@ -34,7 +34,7 @@
                                 <span>{{ airport.rate }}.0</span>
                         </span>
                             <div class="excerpt">
-                                <p>{{ airport.body | truncatewords:12 }} (more)</p>
+                                <p class="mb-0">{{ airport.body | truncatewords:12 }} (more)</p>
                             </div>
                             <div class="card_bottom">
                                 <div class="tag">{{ airport.created_at | date:"d/m/Y" }}</div>

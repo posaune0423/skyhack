@@ -73,7 +73,7 @@
                     <div class="commentter-info">
                         <a href="/mypage/">
                             <img src="{% cloudinary_url review.author.thumbnail %}"
-                                 class="trim-img-circle" alt="">
+                                 class="rounded-circle" alt="">
                         </a>
                         <span>{{ review.author }}</span>
                     </div>
@@ -91,7 +91,7 @@
                 </span>
 
                     <div class="comment-content">
-                        <h4>{{ review.title }}</h4>
+                        <h5>{{ review.title }}</h5>
                         <p>{{ review.body }}</p>
                     </div>
                 </div>

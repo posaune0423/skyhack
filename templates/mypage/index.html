@@ -10,7 +10,7 @@
     <div class="profile_container">
         <div class="wrapper">
             <div class="main_profile">
-                <img src="{% cloudinary_url user.thumbnail %}" alt="" width="40px" class="trim-img-circle">
+                <img src="{% cloudinary_url user.thumbnail %}" alt="" width="40px" class="rounded-circle">
                 <div class="bio">
                     <p>{{ user.username }}</p>
                     <p>{{ user.bio }}</p>
@@ -33,7 +33,7 @@
                             <div class="commentter-info">
                                 <a href="/mypage/">
                                     <img src="{% cloudinary_url review.author.thumbnail %}"
-                                         class="trim-img-circle" alt="">
+                                         class="rounded-circle" alt="">
                                 </a>
                                 <span>{{ review.author }}</span>
                             </div>
@@ -51,7 +51,7 @@
                         </span>
 
                             <div class="comment-content">
-                                <h4>{{ review.title }}</h4>
+                                <h5>{{ review.title }}</h5>
                                 <p>{{ review.body }}</p>
                             </div>
 

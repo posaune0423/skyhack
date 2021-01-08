@@ -9,7 +9,7 @@
         <div class="wrapper">
             <div class="main_profile">
                 <img src="{% cloudinary_url selected_user.thumbnail %}" alt=""
-                     class="trim-img-circle">
+                     class="rounded-circle">
                 <div class="bio">
                     <p>{{ selected_user.username }}</p>
                     <p>{{ selected_user.bio }}</p>
@@ -44,7 +44,7 @@
                                             {{ review.created_at | date:"d/m/Y" }}
                                         </div>
                                         <div class="reviewer">
-                                            <img src="{% cloudinary_url review.author.thumbnail %}" class="trim-img-circle" alt="">
+                                            <img src="{% cloudinary_url review.author.thumbnail %}" class="rounded-circle" alt="">
                                             <span>{{ review.author }}</span>
                                         </div>
                                     </div>

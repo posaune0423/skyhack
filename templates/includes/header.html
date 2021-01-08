@@ -3,41 +3,49 @@
 
 <div class="nav_container">
     <div class="wrapper">
-        <nav>
+        <nav class="d-flex">
             <div class="logo">
                 <a href="/home">
                     <img src="{% static 'images/logo.svg' %}" alt=""/>
                 </a>
             </div>
-            <ul class="home_nav pc">
+            <ul class="home_nav pc mb-0">
                 {% if user.is_authenticated %}
-                <li><a href="/airports/search/">
-                    <img src="{% static 'images/search.svg' %}" alt="">
-                </a>
-                </li>
-                <li>
-                    <a href="/mypage/">
-                        <img src="{% cloudinary_url user.thumbnail %}" alt="" width="50px" class="trim-img-circle avater">
-                    </a>
-                </li>
-                <li>
-                    <a href="/logout/">logout</a>
-                </li>
+                    <li>
+                        <a href="/airports/search/">
+                            <img src="{% static 'images/search.svg' %}" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mypage/">
+                            <img src="{% cloudinary_url user.thumbnail %}" alt="" width="50px"
+                                 class="rounded-circle avater">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/logout/">logout</a>
+                    </li>
                 {% else %}
-                <li>
-                    <a href="/signup/" class="btn_dark">signup</a>
-                </li>
+                    <li>
+                        <a href="/signup/" class="btn_dark">signup</a>
+                    </li>
                 {% endif %}
             </ul>
-            <ul class="home_nav sp">
+            <ul class="home_nav sp mb-0">
                 {% if user.is_authenticated %}
-                <li v-on:click='isOpen=!isOpen'><img src="{% static 'images/bars-solid.svg' %}" alt="" width="22px"
-                                                     id="menu-icon">
-                </li>
+                    <li class="mr-4">
+                        <a href="/airports/search/">
+                            <img src="{% static 'images/search.svg' %}" width="22px" alt="">
+                        </a>
+                    </li>
+                    <li v-on:click='isOpen=!isOpen'>
+                        <img src="{% cloudinary_url user.thumbnail %}" alt="" width="30px" class="rounded-circle"
+                             id="menu-icon">
+                    </li>
                 {% else %}
-                <li>
-                    <div class="signup_btn"><a href="/signup/" class="btn_dark">signup</a></div>
-                </li>
+                    <li>
+                        <div class="signup_btn"><a href="/signup/" class="btn_dark">signup</a></div>
+                    </li>
                 {% endif %}
             </ul>
         </nav>
@@ -46,7 +54,7 @@
 
 
 <!-- Modal -->
-<div class="profile_modal" id="profile_modal" v-bind:class="{ 'hidden':isModalOpen }">
+<div class="profile_modal" id="profile_modal" v-bind:class="{ 'd-none':isModalOpen }">
     <div class="wrapper">
         <ul>
             <li><a href="/mypage/profile/">Edit profile</a></li>

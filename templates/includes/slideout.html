@@ -1,17 +1,7 @@
 {% load cloudinary %}
 <div id="slideout-menu" v-bind:class="{ open:isOpen }">
     <h3>Skyhack</h3>
-    <div class="user_part">
-        <a href="/mypage/">
-            <img src="{% cloudinary_url user.thumbnail %}"
-                 width="40px"
-                 height="40px"
-                 class="trim-img-circle" alt="">
-        </a>
-        <span>{{ user.username }}</span>
-    </div>
     <ul>
-        <li><a href="/airports/search/">Search</a></li>
         {% if user.is_authenticated %}
         <li><a href="/mypage/profile/">Edit profile</a></li>
         <li><a href="/reviews/create/">Write new review</a></li>
@@ -23,4 +13,4 @@
 </div>
 
 
-<div class="overlay" v-bind:class="{ 'hidden':!isOpen }" v-on:click="isOpen=!isOpen"></div>
+<div class="overlay" v-bind:class="{ 'd-none':!isOpen }" v-on:click="isOpen=!isOpen"></div>
