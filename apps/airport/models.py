@@ -12,11 +12,11 @@ class Airport(models.Model):
     )
 
     COUNTRIES = (
-        ('Japan', 'Japan'),
-        ('Korea', 'Korea'),
-        ('Singapore', 'Singapore'),
-        ('Australia', 'Australia'),
-        ('Germany', 'Germany'),
+        ('japan', 'Japan'),
+        ('korea', 'Korea'),
+        ('singapore', 'Singapore'),
+        ('australia', 'Australia'),
+        ('germany', 'Germany'),
     )
 
     title = models.CharField('Airport Name', max_length=50)
