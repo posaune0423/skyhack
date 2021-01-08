@@ -25,7 +25,7 @@ class Create(CreateView):
 class Update(UpdateView):
     model = User
     fields = ('thumbnail', 'username', 'email', 'bio')
-    template_name = 'mypage/edit.html'
+    template_name = 'mypage/../../templates/user/edit.html'
     success_url = '/mypage/'
 
     def get_object(self):

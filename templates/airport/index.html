@@ -5,13 +5,21 @@
 {% load cloudinary %}
 
 {% block body %}
-
     <!-- Filter Box -->
-    <div class="filter_box">
-        <form action="" method="get"><img src="{% static "images/pin.svg" %}" alt="">
-            <input type="text" name="country" value="{{ request.GET.country }}" placeholder="filter by country">
-        </form>
-    </div>
+    {% if is_search %}
+        <div class="filter_box">
+            <form action="" method="get" role="search">
+                <a type="submit"><img src="{% static 'images/search.svg' %}" alt=""></a>
+                <input type="search" name="q" value="{{ request.GET.q }}" placeholder="Search airport...">
+            </form>
+        </div>
+    {% else %}
+        <div class="filter_box">
+            <form action="" method="get"><img src="{% static "images/pin.svg" %}" alt="">
+                <input type="text" name="country" value="{{ request.GET.country }}" placeholder="filter by country">
+            </form>
+        </div>
+    {% endif %}
 
 
     {% if airports %}
@@ -47,8 +55,8 @@
     {% else %}
         <div class="notfound" style="height: calc(100vh - 348px)">
             {% if request.GET.country %}
-            <h3 style="text-align: center;">Sorry We couldn't find that airport</h3>
-        {% endif %}
+                <h3 style="text-align: center;">Sorry We couldn't find that airport</h3>
+            {% endif %}
         </div>
     {% endif %}
 {% endblock %}
