@@ -1,8 +1,9 @@
+{% load cloudinary %}
 <div id="slideout-menu" v-bind:class="{ open:isOpen }">
     <h3>Skyhack</h3>
     <div class="user_part">
         <a href="/mypage/">
-            <img src="{{ user.thumbnail.url }}"
+            <img src="{% cloudinary_url user.thumbnail %}"
                  width="40px"
                  height="40px"
                  class="trim-img-circle" alt="">

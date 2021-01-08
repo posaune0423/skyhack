@@ -1,7 +1,9 @@
 {% extends "base.html" %}
-{% block title %}Post List{% endblock %}
 {% load static %}
 {% load utils %}
+{% load cloudinary %}
+
+{% block title %}Post List{% endblock %}
 
 {% block body %}
 
@@ -19,7 +21,7 @@
             {% for airport in airports %}
                 <div class="post_card">
                     <a href="/airports/{{ airport.id }}">
-                        <img src="{{ airport.image1.url }}"  class="rounded" alt="">
+                        <img src="{% cloudinary_url airport.image1 %}"  class="rounded" alt="">
                         <div class="post_content">
                             <h3>{{ airport.title }}</h3>
                             <span class="stars">

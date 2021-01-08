@@ -2,27 +2,28 @@
 {% block title %}SkyHack | {{ post.title }}{% endblock %}
 {% load static %}
 {% load utils %}
+{% load cloudinary %}
 
 
 {% block body %}
     <!-- Post Detail -->
     <div class="image_container">
-        <div class="top_image pc"><img src="{{ airport.image1.url }}" alt=""></div>
+        <div class="top_image pc"><img src="{% cloudinary_url airport.image1 %}" alt=""></div>
         <div class="remains_image pc">
-            <div><img src="{{ airport.image2.url }}" alt=""></div>
-            <div><img src="{{ airport.image3.url }}" alt=""></div>
+            <div><img src="{% cloudinary_url airport.image2 %}" alt=""></div>
+            <div><img src="{% cloudinary_url airport.image3 %}" alt=""></div>
         </div>
         <div class="remains_image pc">
-            <div><img src="{{ airport.image4.url }}" alt=""></div>
-            <div><img src="{{ airport.image5.url }}" alt=""></div>
+            <div><img src="{% cloudinary_url airport.image4 %}" alt=""></div>
+            <div><img src="{% cloudinary_url airport.image5 %}" alt=""></div>
         </div>
 
         <carousel :per-page="1">
-            <slide><img src="{{ airport.image1.url }}" alt=""></slide>
-            <slide><img src="{{ airport.image2.url }}" alt=""></slide>
-            <slide><img src="{{ airport.image3.url }}" alt=""></slide>
-            <slide><img src="{{ airport.image4.url }}" alt=""></slide>
-            <slide><img src="{{ airport.image5.url }}" alt=""></slide>
+            <slide><img src="{% cloudinary_url airport.image1 %}" alt=""></slide>
+            <slide><img src="{% cloudinary_url airport.image2 %}" alt=""></slide>
+            <slide><img src="{% cloudinary_url airport.image3 %}" alt=""></slide>
+            <slide><img src="{% cloudinary_url airport.image4 %}" alt=""></slide>
+            <slide><img src="{% cloudinary_url airport.image5 %}" alt=""></slide>
         </carousel>
     </div>
 
@@ -71,7 +72,7 @@
                 <div class="thread-container">
                     <div class="commentter-info">
                         <a href="/mypage/">
-                            <img src="{{ review.author.thumbnail.url }}"
+                            <img src="{% cloudinary_url review.author.thumbnail %}"
                                  class="trim-img-circle" alt="">
                         </a>
                         <span>{{ review.author }}</span>
