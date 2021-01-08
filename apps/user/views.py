@@ -34,11 +34,12 @@ class Update(UpdateView):
 
 @login_required
 def index(request):
+    is_mypage = True
     reviews = Review.objects \
                   .filter(author=request.user.id) \
                   .order_by('-created_at')[:4]
 
-    return render(request, 'mypage/index.html', {'reviews': reviews})
+    return render(request, 'user/show.html', {'reviews': reviews, 'is_mypage': is_mypage})
 
 
 @login_required

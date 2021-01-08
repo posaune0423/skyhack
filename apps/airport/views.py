@@ -27,8 +27,13 @@ class Index(ListView):
 
 
 class Search(ListView):
-    template_name = 'search.html'
+    template_name = 'airport/index.html'
     context_object_name = 'airports'
+
+    def get_context_data(self):
+        context = super().get_context_data()
+        context['is_search'] = True
+        return context
 
     def get_queryset(self):
         q_word = self.request.GET.get('q')
