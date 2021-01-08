@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import CreateView, UpdateView
 
 from apps.review.models import Review
@@ -43,9 +43,11 @@ def index(request):
 
 @login_required
 def show(request, pk):
+    if (request.user.id == pk):
+        return redirect('/mypage/')
     user = User.objects.get(pk=pk)
     reviews = Review.objects \
                   .filter(author=user.id) \
                   .order_by('-created_at')[:5]
 
-    return render(request, 'users/show.html', {'selected_user': user, 'reviews': reviews})
+    return render(request, 'user/show.html', {'selected_user': user, 'reviews': reviews})
