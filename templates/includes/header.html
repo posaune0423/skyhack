@@ -35,7 +35,7 @@
                 {% if user.is_authenticated %}
                     <li class="mr-4">
                         <a href="/airports/search/">
-                            <img src="{% static 'images/search.svg' %}" width="22px" alt="">
+                            <img src="{% static 'images/search.svg' %}" width="22px" alt="" class="mt-1">
                         </a>
                     </li>
                     <li v-on:click='isOpen=!isOpen'>
