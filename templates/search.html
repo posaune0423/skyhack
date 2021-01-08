@@ -10,8 +10,8 @@
     <!-- Filter Box -->
     <div class="filter_box">
         <form action="" method="get" role="search">
-            <a type="submit"><img src="{% static 'images/pin.svg' %}" alt=""></a>
-            <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Search Post...">
+            <a type="submit"><img src="{% static 'images/search.svg' %}" alt=""></a>
+            <input type="search" name="q" value="{{ request.GET.q }}" placeholder="Search airport...">
         </form>
     </div>
 
@@ -21,7 +21,7 @@
             {% for airport in airports %}
                 <div class="post_card">
                     <a href="/airports/{{ airport.id }}">
-                        <img src="{% cloudinary_url airport.image1 %}"  class="rounded" alt="">
+                        <img src="{% cloudinary_url airport.image1 %}"  class="round" alt="">
                         <div class="post_content">
                             <h3>{{ airport.title }}</h3>
                             <span class="stars">
