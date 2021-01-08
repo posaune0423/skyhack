@@ -71,7 +71,7 @@
             {% for review in reviews %}
                 <div class="thread-container">
                     <div class="commentter-info">
-                        <a href="/mypage/">
+                        <a href="/users/{{ review.author.id }}">
                             <img src="{% cloudinary_url review.author.thumbnail %}"
                                  class="rounded-circle" alt="">
                         </a>
