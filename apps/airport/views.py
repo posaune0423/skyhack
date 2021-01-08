@@ -17,7 +17,7 @@ class Index(ListView):
 
         if country:
             object_list = Airport.objects \
-                              .filter(country=country.strip()) \
+                              .filter(Q(country__icontains=country.strip().lower())) \
                               .order_by('-created_at')[:6]
         else:
             object_list = Airport.objects \
