@@ -1,5 +1,8 @@
-django
 gunicorn
 Pillow
+whitenoise
+cloudinary
+django-cloudinary-storage
+django
 django-heroku
 django-widget-tweaks

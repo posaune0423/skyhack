@@ -15,6 +15,7 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import cloudinary
 import django_heroku
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -47,6 +48,10 @@ INSTALLED_APPS = [
     'apps.airport',
     'apps.review',
     'apps.user',
+
+    # for deploying to Heroku
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -135,15 +140,23 @@ USE_L10N = True
 USE_TZ = True
 
 # static conf
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
 # media conf
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
+
+
+# settings for Cloudinary
+cloudinary.config(
+  cloud_name = "your cloud name",
+  api_key = "your api key",
+  api_secret = "your api secret"
+)
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # login conf
 LOGIN_URL = '/login/'
@@ -158,7 +171,7 @@ try:
 except ImportError:
     pass
 
+
 if DEBUG:
     import django_heroku
-
     django_heroku.settings(locals())
