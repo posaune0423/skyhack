@@ -473,15 +473,8 @@ header .hero_content {
     box-shadow: 0 0 16px 0 hsla(0, 0%, 75.3%, 0.5);
 }
 
-.filter_box img {
-    position: absolute;
-    left: 14px;
-    top: 10px;
-}
-
 .filter_box input {
     width: 86%;
-    height: 50px;
     position: absolute;
     left: 50px;
     border: none;
@@ -511,6 +504,16 @@ header .hero_content {
         margin: 100px;
     }
 
+    .filter_box img {
+        position: absolute;
+        left: 14px;
+        top: 10px;
+    }
+
+    .filter_box input {
+        height: 50px;
+    }
+
     .filter_box form {
         width: 50%;
         height: 50px;
@@ -520,13 +523,24 @@ header .hero_content {
 
 @media screen and (max-width: 480px) {
     .filter_box {
-        margin: 70px 0;
+        margin: 60px 0;
+    }
+
+    .filter_box input {
+        height: 44px;
     }
 
     .filter_box form {
         width: 78%;
-        height: 50px;
+        height: 44px;
         margin: 0 auto;
+    }
+
+    .filter_box img {
+        position: absolute;
+        left: 14px;
+        top: 12px;
+        width: 18px;
     }
 }
 
