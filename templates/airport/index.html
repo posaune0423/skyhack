@@ -45,7 +45,7 @@
                                 <p class="mb-0">{{ airport.body | truncatewords:12 }} (more)</p>
                             </div>
                             <div class="card_bottom">
-                                <div class="tag">{{ airport.created_at | date:"d/m/Y" }}</div>
+                                <div class="tag">{{ airport.created_at | date:"Y/m/d" }}</div>
                             </div>
                         </div>
                     </a>
@@ -54,8 +54,8 @@
         </div>
     {% else %}
         <div class="notfound" style="height: calc(100vh - 348px)">
-            {% if request.GET.country %}
-                <h3 style="text-align: center;">Sorry We couldn't find that airport</h3>
+            {% if request.GET.country or request.GET.q %}
+                <h3 class="text-center">Sorry We couldn't find that airport</h3>
             {% endif %}
         </div>
     {% endif %}
