@@ -14,10 +14,10 @@ from pathlib import Path
 
 import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 import cloudinary
 import django_heroku
 
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -152,9 +152,9 @@ STATICFILES_DIRS = (
 
 # settings for Cloudinary
 cloudinary.config(
-  cloud_name = "your cloud name",
-  api_key = "your api key",
-  api_secret = "your api secret"
+  cloud_name = os.environ.get('CLOUD_NAME'),
+  api_key = os.environ.get('API_KEY'),
+  api_secret = os.environ.get('API_SECRET')
 )
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
