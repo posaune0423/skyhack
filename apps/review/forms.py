@@ -6,7 +6,6 @@ from .models import Review
 
 
 class ReviewForm(forms.ModelForm):
-    created_at = forms.DateField(label='Date', initial=date.today())
 
     class Meta:
         model = Review
@@ -14,7 +13,6 @@ class ReviewForm(forms.ModelForm):
         fields = (
             'title',
             'body',
-            'created_at',
             'airport',
             'rate'
         )
