@@ -27,9 +27,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <script src="https://kit.fontawesome.com/4b14829618.js" crossorigin="anonymous"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-carousel@0.18.0/dist/vue-carousel.min.js"></script>
-    <script src="https://kit.fontawesome.com/4b14829618.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tinymce/tinymce-vue@3.0.1/lib/browser/tinymce-vue.js"></script>
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -63,12 +66,29 @@
         el: '#app',
         components: {
             'carousel': VueCarousel.Carousel,
-            'slide': VueCarousel.Slide
+            'slide': VueCarousel.Slide,
+            'editor': Editor
         },
         data() {
             return {
                 isOpen: false,
-                isModalOpen: true
+                isModalOpen: true,
+                apikey: 'mb3f6bv2foh5z0l6r61f5ntvhsjkkssrehham3fupz316c7h',
+                init: {
+                    height: 500,
+                    name: 'body',
+                    menubar: false,
+                    plugins: [
+                        'preview fullpage importcss searchreplace autolink \
+                        autosave save directionality visualblocks visualchars fullscreen image link media template codesample \
+                        table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount \
+                        imagetools textpattern noneditable help charmap quickbars  emoticons'
+                    ],
+                    toolbar: [
+                        'undo redo | formatselect | bold italic backcolor'
+                    ],
+                },
+                initialValue: '<p>Write your review here</p>'
             }
         }
     })
