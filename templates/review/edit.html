@@ -17,20 +17,24 @@
                         </div>
                         {% if item.errors %}
                             {% for error in item.errors %}
-                                <p style="color: red">{{ error }}</p>
+                                <p class="text-danger">{{ error }}</p>
                             {% endfor %}
                         {% endif %}
                     {% elif item.name == 'body' %}
                         <label for="body">{{ item.label }}</label>
                         <div class="input-group mb-4">
-                            <textarea
-                                    class="form-control"
+                            <editor
                                     name="body"
-                                    placeholder="write your review">{{ item.value }}</textarea>
+                                    value="{{ item.value }}"
+                                    ref="editor"
+                                    :api-key="apikey"
+                                    :initialValue="initialValue"
+                                    :init="init"
+                            ></editor>
                         </div>
                         {% if item.errors %}
                             {% for error in item.errors %}
-                                <p style="color: red">{{ error }}</p>
+                                <p class="text-danger">{{ error }}</p>
                             {% endfor %}
                         {% endif %}
                     {% elif item.name == 'rate' %}
@@ -51,7 +55,7 @@
                         </div>
                         {% if item.errors %}
                             {% for error in item.errors %}
-                                <p style="color: red">{{ error }}</p>
+                                <p class="text-danger">{{ error }}</p>
                             {% endfor %}
                         {% endif %}
                     {% endif %}

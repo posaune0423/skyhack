@@ -18,10 +18,13 @@
                     {% elif item.name == 'body' %}
                         <label for="body">{{ item.label }}</label>
                         <div class="input-group mb-4">
-                            <textarea
-                                    class="form-control"
+                            <editor
                                     name="body"
-                                    placeholder="write yourreview"></textarea>
+                                    ref="editor"
+                                    :api-key="apikey"
+                                    :initialValue="initialValue"
+                                    :init="init"
+                            ></editor>
                         </div>
                     {% else %}
                         <div class="form-group mb-4">
