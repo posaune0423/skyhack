@@ -1,8 +1,16 @@
 {% extends "base.html" %}
-{% block title %}SkyHack | {{ post.title }}{% endblock %}
 {% load static %}
 {% load utils %}
 {% load cloudinary %}
+
+{% block title %}SkyHack | {{ airport.title }}{% endblock %}
+{% block meta %}
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta property="og:url" content="https://sky-hack.herokuapp.com/airports/{{ airport.id }}"/>
+    <meta property="og:title" content="{{ airport.title }}"/>
+    <meta property="og:image"
+          content="{% cloudinary_url airport.image1 %}"/>
+{% endblock %}
 
 
 {% block body %}

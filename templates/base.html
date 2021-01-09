@@ -6,8 +6,19 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description"
+          content="Sky Hack is th best place to know about airport around the world. all information that you want accumulate here.">
     <meta name="author" content="">
+    <meta name="apple-mobile-web-app-title" content="Sky Hack"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:site_name" content="Sky Hack"/>
+    <meta name="robots" content="index,follow"/>
+    <meta name="googlebot" content="index,follow"/>
+    {% block meta %}{% endblock %}
+
+    <link rel="shortcut icon" type="image/png" href="https://sky-hack.herokuapp.com/static/images/favicon.png"/>
+    <link rel="apple-touch-icon-precomposed" type="image/png"
+          href="https://sky-hack.herokuapp.com/static/images/favicon.png"/>
 
     <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
@@ -26,6 +37,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 
     <title>{% block title %}{% endblock %}</title>
 </head>
