@@ -493,8 +493,8 @@ header .hero_content {
     -webkit-writing-mode: horizontal-tb !important;
     text-rendering: auto;
     -webkit-rtl-ordering: logical;
-    /*color: -internal-light-dark-color(black, white);*/
-    /*background-color: -internal-light-dark-color(white, black);*/
+    color: -internal-light-dark-color(black, white);
+    background-color: -internal-light-dark-color(white, black);
     display: inline-block;
     outline: none;
 }
