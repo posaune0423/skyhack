@@ -236,6 +236,14 @@ nav ul {
     font-size: 18px;
 }
 
+.home_nav li:first-child > a > img:hover {
+    opacity: 0.6;
+}
+
+.logo img:hover {
+    opacity: 0.6;
+}
+
 .avater {
     width: 48px;
     height: 48px;
