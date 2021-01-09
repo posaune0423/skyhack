@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 {% block title %}SkyHack | Home{% endblock %}
 {% load static %}
+{% block meta %}
+    <meta property="og:title" content="{{ airport.title }}"/>
+    <meta property="og:description"
+          content="Sky Hack is th best place to know about airport around the world. all information that you want accumulate here.">
+    <meta property="og:image" content="{{ request.build_absolute_uri }}static/images/ogp-top.png"/>
+    <meta property="og:url" content="{{ request.build_absolute_uri }}"/>
+{% endblock %}
 
 {% block body %}
     <!-- Hero Panel -->
