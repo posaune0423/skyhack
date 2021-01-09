@@ -10,11 +10,11 @@
                 </a>
             </div>
             <ul class="home_nav pc mb-0">
-                    <li>
-                        <a href="/airports/search/">
-                            <img src="{% static 'images/search.svg' %}" alt="">
-                        </a>
-                    </li>
+                <li>
+                    <a href="/airports/search/">
+                        <img src="{% static 'images/search.svg' %}" alt="">
+                    </a>
+                </li>
                 {% if user.is_authenticated %}
                     <li>
                         <a href="/mypage/">
@@ -39,7 +39,8 @@
                         </a>
                     </li>
                     <li v-on:click='isOpen=!isOpen'>
-                        <img src="{% cloudinary_url user.thumbnail %}" alt="" width="32px" height="32px" class="rounded-circle"
+                        <img src="{% cloudinary_url user.thumbnail %}" alt="" width="32px" height="32px"
+                             class="rounded-circle"
                              id="menu-icon">
                     </li>
                 {% else %}
@@ -57,8 +58,9 @@
 <div class="profile_modal" id="profile_modal" v-bind:class="{ 'd-none':isModalOpen }">
     <div class="wrapper">
         <ul>
-            <li><a href="/mypage/profile/">Edit profile</a></li>
-            <li><a href="/reviews/create/">Write new review</a></li>
+            <li><a href="/mypage/profile/">Account settings</a></li>
+            <li><a href="/mypage/">Your profile</a></li>
+            <li><a href="/reviews/create">New review</a></li>
             <li><a href="/logout/">Log out</a></li>
         </ul>
     </div>

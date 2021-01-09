@@ -3,8 +3,9 @@
     <h3>Skyhack</h3>
     <ul>
         {% if user.is_authenticated %}
-        <li><a href="/mypage/profile/">Edit profile</a></li>
-        <li><a href="/reviews/create/">Write new review</a></li>
+        <li><a href="/mypage/profile/">Account settings</a></li>
+        <li><a href="/mypage/">Your profile</a></li>
+        <li><a href="/reviews/create">New review</a></li>
         <li><a href="/logout/">Log out</a></li>
         {% else %}
         <li><a href="/signup/">Signup</a></li>
