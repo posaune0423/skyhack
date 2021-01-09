@@ -6,5 +6,5 @@ import apps.review.views
 urlpatterns = [
     path('<int:pk>/edit', login_required(apps.review.views.Update.as_view())),
     path('create/', login_required(apps.review.views.Create.as_view())),
-    path('<int:id>/delete', apps.review.views.delete),
+    path('<int:pk>/delete', apps.review.views.delete),
 ]
