@@ -10,7 +10,7 @@
         <div class="filter_box">
             <form action="" method="get" role="search">
                 <img src="{% static 'images/search.svg' %}" alt="">
-                <input type="search" name="q" value="{{ request.GET.q }}" placeholder="Search airport...">
+                <input type="search" name="q" value="{{ request.GET.q }}" placeholder="Search airport..." class="pr-0">
             </form>
         </div>
     {% else %}
