@@ -9,14 +9,15 @@
     {% if is_search %}
         <div class="filter_box">
             <form action="" method="get" role="search">
-                <a type="submit"><img src="{% static 'images/search.svg' %}" alt=""></a>
+                <img src="{% static 'images/search.svg' %}" alt="">
                 <input type="search" name="q" value="{{ request.GET.q }}" placeholder="Search airport...">
             </form>
         </div>
     {% else %}
         <div class="filter_box">
-            <form action="" method="get"><img src="{% static "images/pin.svg" %}" alt="">
-                <input type="text" name="country" value="{{ request.GET.country }}" placeholder="filter by country">
+            <form action="" method="get" role="search">
+                <img src="{% static "images/pin.svg" %}" alt="">
+                <input type="text" name="country" value="{{ request.GET.country }}" placeholder="Filter by country">
             </form>
         </div>
     {% endif %}

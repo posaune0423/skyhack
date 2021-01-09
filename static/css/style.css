@@ -53,7 +53,6 @@ a:hover {
     right: 3%;
     width: 215px;
     height: 465px;
-    text-align: center;
     padding-top: 34px;
     box-shadow: 0 0 16px 0 hsla(0, 0%, 75.3%, 0.5);
 }
@@ -136,10 +135,8 @@ a:hover {
     left: 0;
     background: #fff;
     position: fixed;
-    /* transition: 0.4s;*/
     width: 260px;
     height: 100%;
-    /* margin-top: 90px; */
     text-align: center;
     transform: translateX(-260px);
     transition: transform 250ms ease-in-out;
@@ -244,7 +241,7 @@ nav ul {
     opacity: 0.6;
 }
 
-.avater {
+.avatar {
     width: 48px;
     height: 48px;
 }
@@ -491,11 +488,10 @@ header .hero_content {
     letter-spacing: normal;
     word-spacing: normal;
     text-transform: none;
-    text-indent: 0px;
+    text-indent: 0;
     text-shadow: none;
     cursor: text;
     border-radius: 0;
-    border: none;
     text-align: start;
     -webkit-appearance: textfield;
     -webkit-writing-mode: horizontal-tb !important;
@@ -585,11 +581,10 @@ header .hero_content {
     letter-spacing: normal;
     word-spacing: normal;
     text-transform: none;
-    text-indent: 0px;
+    text-indent: 0;
     text-shadow: none;
     cursor: text;
     border-radius: 0;
-    border: none;
     text-align: start;
     -webkit-appearance: textfield;
     -webkit-writing-mode: horizontal-tb !important;
@@ -1128,21 +1123,9 @@ header .hero_content {
 
 
 /* Footer */
-
-/*#app {*/
-/*    position: relative;*/
-/*    width: 100%;*/
-/*    height: auto !important;*/
-/*    min-height: 100vh;*/
-/*}*/
-
 footer {
     background-color: #c4c4c4;
     text-align: center;
-
-    /*width: 100%;*/
-    /*position: absolute;*/
-    /*bottom: 0;*/
 }
 
 footer a {
@@ -1220,7 +1203,6 @@ footer .wrapper {
     text-shadow: none;
     cursor: text;
     border-radius: 0;
-    border: none;
     text-align: start;
     -webkit-appearance: textfield;
     -webkit-writing-mode: horizontal-tb !important;
