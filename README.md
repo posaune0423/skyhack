@@ -26,6 +26,9 @@ In order to do it, please run following commands
 $ heroku create <your app name>
 
 $ heroku config:set DISABLE_COLLECTSTATIC=1
+$ heroku config:set CLOUD_NAME=<your cloud_name>
+$ heroku config:set API_KEY=<your api_key>
+$ heroku config:set API_SECRET=<your api secret>
 
 $ git push heroku main
 
