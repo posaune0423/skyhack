@@ -40,7 +40,10 @@
         <div class="wrapper">
             <div class="review_content">
                 <h2>{{ airport.title }}</h2>
-                <div class="address">{{ airport.country }}</div>
+                <div class="address">
+                    {{ airport.country.name }}
+                </div>
+
                 <div class="rating">
                     <span class="stars">
                         {% for file_id in ""|rjust:airport.rate %}
