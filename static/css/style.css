@@ -475,7 +475,7 @@ header .hero_content {
 }
 
 .filter_box input {
-    width: 86%;
+    width: 80%;
     position: absolute;
     left: 50px;
     border: none;
