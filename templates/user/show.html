@@ -3,7 +3,13 @@
 {% load utils %}
 {% load cloudinary %}
 
-{% block title %}SkyHack | My page {% endblock %}
+{% block title %}
+    {% if is_mypage %}
+    SkyHack | My page
+    {% else %}
+        SkyHack | {{ selected_user.username }}
+    {% endif %}
+{% endblock %}
 
 {% block body %}
     <!-- Content from here -->
