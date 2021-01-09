@@ -9,8 +9,7 @@
     <meta property="og:title" content="{{ airport.title }}"/>
     <meta property="og:description" content="{{ airport.body | truncatewords:12 }}">
     <meta property="og:url" content="{{ request.build_absolute_uri }}"/>
-    <meta property="og:image"
-          content="{% cloudinary_url airport.image1 %}"/>
+    <meta property="og:image" content="{% cloudinary_url airport.image1 %}"/>
 {% endblock %}
 
 
