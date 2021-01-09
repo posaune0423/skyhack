@@ -372,6 +372,10 @@ header .hero_content {
     color: #000000;
 }
 
+.toggle_profile {
+    cursor: pointer;
+}
+
 @media screen and (min-width: 481px) {
     .reviewer_container .wrapper {
         display: grid;

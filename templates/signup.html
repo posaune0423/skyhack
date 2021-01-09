@@ -31,14 +31,6 @@
                             </div>
                             <input class="btn btn-dark btn-lg btn-block" type="submit" value="Sign Up"/>
                         </fieldset>
-
-                        {% if form.errors %}
-                            {% for field in form %}
-                                {% for error in field.errors %}
-                                    <p class="red">{{ error }}</p>
-                                {% endfor %}
-                            {% endfor %}
-                        {% endif %}
                     </form>
                 </div>
                 <p class="mt-4">

@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="post-form-container">
-        <h2 style="margin-top: 40px; margin-left: 40px;">Update your profile</h2>
+        <h3 class="mt-4 ml-4">Update your profile</h3>
         <div class="m-3">
             <form action="" method="post" enctype="multipart/form-data" class="mt-3">
                 {% csrf_token %}
@@ -42,7 +42,7 @@
                         </div>
                     {% endif %}
                 {% endfor %}
-                <button type="submit" class="btn btn-dark" style="margin: 20px 0px; text-align: right">Save</button>
+                <button type="submit" class="btn btn-dark text-right my-3 mx-0">Save</button>
             </form>
         </div>
     </div>
