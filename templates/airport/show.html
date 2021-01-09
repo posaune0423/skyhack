@@ -56,7 +56,7 @@
                         <span>{{ airport.rate }}.0</span>
                     </span>
                 </div>
-                <div class="tag" style="margin-top: 10px;">{{ airport.created_at | date:"d/m/Y" }}</div>
+                <div class="tag mt-2">{{ airport.created_at | date:"Y/m/d" }}</div>
                 <div class="review_body">
                     {{ airport.body | linebreaksbr }}
                 </div>
@@ -88,7 +88,7 @@
                         </a>
                         <span>{{ review.author }}</span>
                     </div>
-                    <p class="comment-date">{{ review.created_at | date:"d/m/Y" }}</p>
+                    <p class="comment-date">{{ review.created_at | date:"Y/m/d" }}</p>
                     <span class="stars">
                     {% for file_id in ""|rjust:review.rate %}
                         <img src="{% static 'images/fullstar.svg' %}" alt="">
