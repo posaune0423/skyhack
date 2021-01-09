@@ -17,7 +17,7 @@
         <div class="profile_container">
         <div class="wrapper">
         <div class="main_profile">
-            <img src="{% cloudinary_url user.thumbnail %}" alt="" width="40px" class="rounded-circle">
+            <img src="{% cloudinary_url user.thumbnail %}" alt="" width="40px" class="rounded-circle img-cover">
             <div class="bio">
                 <p>{{ user.username }}</p>
                 <p>{{ user.bio }}</p>
@@ -32,7 +32,7 @@
         <div class="profile_container">
         <div class="wrapper">
         <div class="main_profile">
-            <img src="{% cloudinary_url selected_user.thumbnail %}" alt="" width="40px" class="rounded-circle">
+            <img src="{% cloudinary_url selected_user.thumbnail %}" alt="" width="40px" class="rounded-circle img-cover">
             <div class="bio">
                 <p>{{ selected_user.username }}</p>
                 <p>{{ selected_user.bio }}</p>

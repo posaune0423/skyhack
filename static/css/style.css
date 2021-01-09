@@ -12,6 +12,10 @@ a {
     text-decoration: none !important;
 }
 
+.img-cover {
+    object-fit: cover;
+}
+
 
 /* Basic */
 .btn_dark {

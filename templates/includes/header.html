@@ -19,7 +19,7 @@
                     <li>
                         <a href="/mypage/">
                             <img src="{% cloudinary_url user.thumbnail %}" alt="" width="50px"
-                                 class="rounded-circle avatar">
+                                 class="rounded-circle img-cover avatar">
                         </a>
                     </li>
                     <li>
@@ -40,7 +40,7 @@
                     </li>
                     <li v-on:click='isOpen=!isOpen'>
                         <img src="{% cloudinary_url user.thumbnail %}" alt="" width="32px" height="32px"
-                             class="rounded-circle"
+                             class="rounded-circle img-cover"
                              id="menu-icon">
                     </li>
                 {% else %}

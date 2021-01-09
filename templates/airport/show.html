@@ -84,7 +84,7 @@
                     <div class="commentter-info">
                         <a href="/users/{{ review.author.id }}">
                             <img src="{% cloudinary_url review.author.thumbnail %}"
-                                 class="rounded-circle" alt="">
+                                 class="rounded-circle img-cover" alt="">
                         </a>
                         <span>{{ review.author }}</span>
                     </div>
@@ -115,7 +115,7 @@
                 <div class="commentter-info">
                     <a href="/users/{{ user.id }}">
                         <img src="{% cloudinary_url user.thumbnail %}"
-                             class="rounded-circle" alt="">
+                             class="rounded-circle img-cover" alt="">
                     </a>
                     <span>{{ user.username }}</span>
                 </div>
