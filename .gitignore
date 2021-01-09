@@ -21,4 +21,3 @@ db.sqlite3
 config/local_settings.py
 media
 staticfiles
-static
