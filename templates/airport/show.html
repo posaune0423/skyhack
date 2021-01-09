@@ -5,7 +5,8 @@
 
 {% block title %}SkyHack | {{ airport.title }}{% endblock %}
 {% block meta %}
-    <meta name="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:domain" content="sky-hack.herokuapp.com"/>
     <meta property="og:title" content="{{ airport.title }}"/>
     <meta property="og:description" content="{{ airport.body | truncatewords:12 }}">
     <meta property="og:url" content="{{ request.build_absolute_uri }}"/>
