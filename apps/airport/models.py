@@ -1,5 +1,7 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
+from django_countries.fields import CountryField
+
 
 class Airport(models.Model):
 
@@ -11,17 +13,9 @@ class Airport(models.Model):
         (5, 5),
     )
 
-    COUNTRIES = (
-        ('japan', 'Japan'),
-        ('korea', 'Korea'),
-        ('singapore', 'Singapore'),
-        ('australia', 'Australia'),
-        ('germany', 'Germany'),
-    )
-
     title = models.CharField('Airport Name', max_length=50)
     body = models.TextField(blank=True)
-    country = models.CharField('country', choices=COUNTRIES, max_length=50)
+    country = CountryField()
     created_at = models.DateTimeField('date created')
     image1 = CloudinaryField('Image 1', blank=True, null=True, default='v1610122704/media/noimage_r2hsre.png')
     image2 = CloudinaryField('Image 2', blank=True, null=True, default='v1610122704/media/noimage_r2hsre.png')

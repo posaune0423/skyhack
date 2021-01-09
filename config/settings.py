@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     # third party
     'widget_tweaks',
+    'django_countries',
 
     # apps
     'apps.airport',

@@ -7,3 +7,4 @@ django
 django-heroku
 django-widget-tweaks
 django-pure-pagination
+django-countries
