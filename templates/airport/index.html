@@ -53,6 +53,9 @@
                 </div>
             {% endfor %}
         </div>
+
+        {% include "includes/pager.html" %}
+
     {% else %}
         <div class="notfound" style="height: calc(100vh - 348px)">
             {% if request.GET.country or request.GET.q %}

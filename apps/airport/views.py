@@ -2,32 +2,35 @@ from django.db.models import Q
 from django.shortcuts import render
 from django.utils import timezone
 from django.views.generic import ListView
+from pure_pagination.mixins import PaginationMixin
 
 from apps.airport.models import Airport
 from apps.review.models import Review
 
 
-class Index(ListView):
+class Index(PaginationMixin, ListView):
     template_name = 'airport/index.html'
     context_object_name = 'airports'
+    paginate_by = 6
 
     def get_queryset(self):
         country = self.request.GET.get('country')
 
         if country:
             object_list = Airport.objects \
-                              .filter(Q(country__icontains=country.strip().lower())) \
-                              .order_by('-created_at')[:6]
+                .filter(Q(country__icontains=country.strip().lower())) \
+                .order_by('-created_at')
         else:
             object_list = Airport.objects \
-                              .filter(created_at__lte=timezone.now()) \
-                              .order_by('-created_at')[:6]
+                .filter(created_at__lte=timezone.now()) \
+                .order_by('-created_at')
         return object_list
 
 
-class Search(ListView):
+class Search(PaginationMixin, ListView):
     template_name = 'airport/index.html'
     context_object_name = 'airports'
+    paginate_by = 6
 
     def get_context_data(self):
         context = super().get_context_data()
@@ -39,10 +42,10 @@ class Search(ListView):
 
         if q_word:
             object_list = Airport.objects \
-                              .filter(Q(title__icontains=q_word.strip()) | Q(body__icontains=q_word.strip())) \
-                              .order_by('-created_at')[:6]
+                .filter(Q(title__icontains=q_word.strip()) | Q(body__icontains=q_word.strip())) \
+                .order_by('-created_at')
         else:
-            object_list = None
+            object_list = []
         return object_list
 
 
