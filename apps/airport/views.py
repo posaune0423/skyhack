@@ -50,6 +50,7 @@ def show(request, pk):
     airport = Airport.objects.get(id=pk)
     reviews = Review.objects \
         .filter(airport=airport.id) \
+        .order_by('created_at') \
         .all()
 
     return render(request, 'airport/show.html', {'airport': airport, 'reviews': reviews})
