@@ -107,4 +107,20 @@
             {% endfor %}
         </div>
     {% endif %}
+    <div class="comment-container">
+        <div class="thread-container mt-0">
+            <div class="commentter-info">
+                <a href="/users/1">
+                    <img src="{% cloudinary_url user.thumbnail %}"
+                         class="rounded-circle" alt="">
+                </a>
+                <span>{{ user.username }}</span>
+            </div>
+            <div class="comment-content">
+                <div class="create-new-comment">
+                    <a href="/reviews/create">Write your review</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

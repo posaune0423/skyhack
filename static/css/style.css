@@ -12,10 +12,6 @@ a {
     text-decoration: none !important;
 }
 
-a:hover {
-    color: #787878 !important;
-}
-
 
 /* Basic */
 .btn_dark {
@@ -229,6 +225,10 @@ nav ul {
     text-decoration: none;
     color: #000;
     font-size: 18px;
+}
+
+.home_nav li:nth-child(3) > a:hover {
+    color: #787878 !important;
 }
 
 .home_nav li:first-child > a > img:hover {
@@ -553,6 +553,10 @@ header .hero_content {
     box-shadow: 0 0 16px 0 hsla(0, 0%, 75.3%, 0.5);
     margin-bottom: 30px;
     border-radius: 20px;
+}
+
+.post_card a:hover {
+    color: #787878 !important;
 }
 
 
@@ -971,6 +975,10 @@ header .hero_content {
 
 .comment-content h4 {
     margin-top: 10px;
+}
+
+.create-new-comment {
+    margin: 1rem;
 }
 
 
