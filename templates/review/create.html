@@ -15,15 +15,6 @@
                             <label for="{{ item.id_for_label }}">{{ item.label }}</label>
                             {{ item | add_class:'form-control' }}
                         </div>
-                    {% elif item.name == 'created_at' %}
-                        <div class="form-group mb-4">
-                            <label for="{{ item.id_for_label }}">{{ item.label }}</label>
-                            <input
-                                    type="date"
-                                    class="form-control"
-                                    {% if item.field.required %}required{% endif %}
-                                    name="{{ item.name }}">
-                        </div>
                     {% elif item.name == 'body' %}
                         <label for="body">{{ item.label }}</label>
                         <div class="input-group mb-4">

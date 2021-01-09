@@ -20,13 +20,6 @@
                                 <p style="color: red">{{ error }}</p>
                             {% endfor %}
                         {% endif %}
-                    {% elif item.name == 'created_at' %}
-                        <input type="hidden" value="{{ item.value | date:"Y-m-d" }}" name="created_at">
-                        {% if item.errors %}
-                            {% for error in item.errors %}
-                                <p style="color: red">{{ error }}</p>
-                            {% endfor %}
-                        {% endif %}
                     {% elif item.name == 'body' %}
                         <label for="body">{{ item.label }}</label>
                         <div class="input-group mb-4">
