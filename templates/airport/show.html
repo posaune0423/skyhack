@@ -101,7 +101,7 @@
 
                     <div class="comment-content">
                         <h5>{{ review.title }}</h5>
-                        <p>{{ review.body }}</p>
+                        <p>{{ review.body | safe }}</p>
                     </div>
                 </div>
             {% endfor %}
