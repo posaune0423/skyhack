@@ -10,12 +10,12 @@
                 </a>
             </div>
             <ul class="home_nav pc mb-0">
-                {% if user.is_authenticated %}
                     <li>
                         <a href="/airports/search/">
                             <img src="{% static 'images/search.svg' %}" alt="">
                         </a>
                     </li>
+                {% if user.is_authenticated %}
                     <li>
                         <a href="/mypage/">
                             <img src="{% cloudinary_url user.thumbnail %}" alt="" width="50px"
