@@ -47,7 +47,6 @@ class Search(ListView):
         return object_list
 
 
-@login_required
 def show(request, pk):
     airport = Airport.objects.get(id=pk)
     reviews = Review.objects \
