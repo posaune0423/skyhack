@@ -39,4 +39,4 @@ $ heroku addons:create scheduler:standard
 
 At last, to keep dyno server turn on, set schedular running the command below every 10 minutes.
 
-`curl -I https://arcane-woodland-83940.herokuapp.com`
+`curl -I https://<your-app-name>.herokuapp.com`
