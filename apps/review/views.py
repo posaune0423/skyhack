@@ -21,28 +21,7 @@ class Create(CreateView):
         review.author = self.request.user
         review.save()
 
-        # insert record into rates table
-        item = Airport.objects.get(pk=review.airport_id)
-        query = Rates.objects.filter(user=self.request.user, item=item)
-        if query.count() == 0:
-            Rates.objects \
-                .create(
-                    user=self.request.user,
-                    item=item,
-                    created_at=datetime.now(),
-                    rate=review.rate
-            )
-        else:
-            query \
-                .update(
-                    created_at=datetime.now(),
-                    rate=review.rate
-            )
-
-        # update airport rate
-        avg = Rates.objects.filter(item=item).aggregate(Avg('rate'))
-        item.rate = avg['rate__avg']
-        item.save()
+        update_airport_rate(self, review)
 
         return redirect('/mypage/')
 
@@ -55,29 +34,7 @@ class Update(UpdateView):
 
     def form_valid(self, form):
         review = form.save()
-
-        # insert record into rates table
-        item = Airport.objects.get(pk=review.airport_id)
-        query = Rates.objects.filter(user=self.request.user, item=item)
-        if query.count() == 0:
-            Rates.objects \
-                .create(
-                    user=self.request.user,
-                    item=item,
-                    created_at=datetime.now(),
-                    rate=review.rate
-            )
-        else:
-            query \
-                .update(
-                    created_at=datetime.now(),
-                    rate=review.rate
-            )
-
-        # update airport rate
-        avg = Rates.objects.filter(item=item).aggregate(Avg('rate'))
-        item.rate = avg['rate__avg']
-        item.save()
+        update_airport_rate(self, review)
 
         return super(Update, self).form_valid(form)
 
@@ -90,3 +47,28 @@ def delete(request, pk):
 
     review.delete()
     return redirect('/mypage/')
+
+
+def update_airport_rate(self, review):
+    # insert record into rates table
+    item = Airport.objects.get(pk=review.airport_id)
+    query = Rates.objects.filter(user=self.request.user, item=item)
+    if query.count() == 0:
+        Rates.objects \
+            .create(
+            user=self.request.user,
+            item=item,
+            created_at=datetime.now(),
+            rate=review.rate
+        )
+    else:
+        query \
+            .update(
+            created_at=datetime.now(),
+            rate=review.rate
+        )
+
+    # update airport rate
+    avg = Rates.objects.filter(item=item).aggregate(Avg('rate'))
+    item.rate = avg['rate__avg']
+    item.save()
