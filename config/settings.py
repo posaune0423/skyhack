@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import dj_database_url
 from pathlib import Path
 
 import os
@@ -108,7 +109,6 @@ DATABASES = {
 }
 
 # setting for fetching db info from heroku
-import dj_database_url
 
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
@@ -153,9 +153,9 @@ STATICFILES_DIRS = (
 
 # settings for Cloudinary
 cloudinary.config(
-  cloud_name = os.environ.get('CLOUD_NAME'),
-  api_key = os.environ.get('API_KEY'),
-  api_secret = os.environ.get('API_SECRET')
+    cloud_name=os.environ.get('CLOUD_NAME'),
+    api_key=os.environ.get('API_KEY'),
+    api_secret=os.environ.get('API_SECRET')
 )
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
