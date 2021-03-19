@@ -926,6 +926,12 @@ header .hero_content {
     font-size: 24px;
 }
 
+
+/* For tinymce editor */
+.tox-tinymce {
+    width: -webkit-fill-available;
+}
+
 @media screen and (min-width: 481px) {
     .mypost_container {
         display: grid;
