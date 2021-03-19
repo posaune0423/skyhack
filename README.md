@@ -14,6 +14,7 @@ $ cd skyhack/skyhack
 $ cp local_settings_sample.py local_settings.py
 
 $ python manage.py migrate
+$ export CLOUD_NAME=<your cloud name> && export API_KEY=<your api key> && export API_SECRET=<your api secret>
 
 $ python manage.py runserver
 ```
