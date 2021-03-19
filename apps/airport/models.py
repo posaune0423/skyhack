@@ -9,11 +9,16 @@ class Airport(models.Model):
     body = models.TextField(blank=True)
     country = CountryField()
     created_at = models.DateTimeField('date created')
-    image1 = CloudinaryField('Image 1', blank=True, null=True, default='v1610122704/media/noimage_r2hsre.png')
-    image2 = CloudinaryField('Image 2', blank=True, null=True, default='v1610122704/media/noimage_r2hsre.png')
-    image3 = CloudinaryField('Image 3', blank=True, null=True, default='v1610122704/media/noimage_r2hsre.png')
-    image4 = CloudinaryField('Image 4', blank=True, null=True, default='v1610122704/media/noimage_r2hsre.png')
-    image5 = CloudinaryField('Image 5', blank=True, null=True, default='v1610122704/media/noimage_r2hsre.png')
+    image1 = CloudinaryField('Image 1', blank=True, null=True,
+                             default='v1610122704/media/noimage_r2hsre.png')
+    image2 = CloudinaryField('Image 2', blank=True, null=True,
+                             default='v1610122704/media/noimage_r2hsre.png')
+    image3 = CloudinaryField('Image 3', blank=True, null=True,
+                             default='v1610122704/media/noimage_r2hsre.png')
+    image4 = CloudinaryField('Image 4', blank=True, null=True,
+                             default='v1610122704/media/noimage_r2hsre.png')
+    image5 = CloudinaryField('Image 5', blank=True, null=True,
+                             default='v1610122704/media/noimage_r2hsre.png')
     rate = models.IntegerField()
 
     class Meta:
@@ -29,4 +34,4 @@ class Rates(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     item = models.ForeignKey('Airport', on_delete=models.CASCADE)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    rate =  models.IntegerField()
+    rate = models.IntegerField()

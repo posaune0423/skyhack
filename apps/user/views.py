@@ -36,8 +36,8 @@ class Update(UpdateView):
 def index(request):
     is_mypage = True
     reviews = Review.objects \
-                  .filter(author=request.user.id) \
-                  .order_by('-created_at')[:4]
+        .filter(author=request.user.id) \
+        .order_by('-created_at')[:4]
 
     return render(request, 'user/show.html', {'reviews': reviews, 'is_mypage': is_mypage})
 
@@ -48,7 +48,7 @@ def show(request, pk):
         return redirect('/mypage/')
     user = User.objects.get(pk=pk)
     reviews = Review.objects \
-                  .filter(author=user.id) \
-                  .order_by('-created_at')[:5]
+        .filter(author=user.id) \
+        .order_by('-created_at')[:5]
 
     return render(request, 'user/show.html', {'selected_user': user, 'reviews': reviews})

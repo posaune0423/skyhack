@@ -56,17 +56,17 @@ def update_airport_rate(self, review):
     if query.count() == 0:
         Rates.objects \
             .create(
-            user=self.request.user,
-            item=item,
-            created_at=datetime.now(),
-            rate=review.rate
-        )
+                user=self.request.user,
+                item=item,
+                created_at=datetime.now(),
+                rate=review.rate
+            )
     else:
         query \
             .update(
-            created_at=datetime.now(),
-            rate=review.rate
-        )
+                created_at=datetime.now(),
+                rate=review.rate
+            )
 
     # update airport rate
     avg = Rates.objects.filter(item=item).aggregate(Avg('rate'))
