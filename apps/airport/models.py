@@ -1,18 +1,10 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from cloudinary.models import CloudinaryField
 from django_countries.fields import CountryField
 
 
 class Airport(models.Model):
-
-    RATES = (
-        (1, 1),
-        (2, 2),
-        (3, 3),
-        (4, 4),
-        (5, 5),
-    )
-
     title = models.CharField('Airport Name', max_length=50)
     body = models.TextField(blank=True)
     country = CountryField()
@@ -22,7 +14,7 @@ class Airport(models.Model):
     image3 = CloudinaryField('Image 3', blank=True, null=True, default='v1610122704/media/noimage_r2hsre.png')
     image4 = CloudinaryField('Image 4', blank=True, null=True, default='v1610122704/media/noimage_r2hsre.png')
     image5 = CloudinaryField('Image 5', blank=True, null=True, default='v1610122704/media/noimage_r2hsre.png')
-    rate = models.IntegerField(choices=RATES)
+    rate = models.IntegerField()
 
     class Meta:
         db_table = 'airports'
@@ -30,3 +22,11 @@ class Airport(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Rates(models.Model):
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    item = models.ForeignKey('Airport', on_delete=models.CASCADE)
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    rate =  models.IntegerField()
