@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+import sys
 
 import dj_database_url
 from pathlib import Path
@@ -97,21 +98,30 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'name',
-        'USER': 'user',
-        'PASSWORD': '',
-        'HOST': 'host',
-        'PORT': '',
+
+if sys.argv[1] == 'test':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'name',
+            'USER': 'user',
+            'PASSWORD': '',
+            'HOST': 'host',
+            'PORT': '',
+        }
+    }
 
-# setting for fetching db info from heroku
+    # setting for fetching db info from heroku
+    db_from_env = dj_database_url.config()
+    DATABASES['default'].update(db_from_env)
 
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -140,12 +150,10 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-
 # Session conf
-SESSION_COOKIE_AGE = 3600 # expire in 1h
-SESSION_SAVE_EVERY_REQUEST = True # session expires since last request
+SESSION_COOKIE_AGE = 3600  # expire in 1h
+SESSION_SAVE_EVERY_REQUEST = True  # session expires since last request
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-
 
 # static conf
 STATIC_URL = '/static/'
@@ -179,7 +187,7 @@ try:
 except ImportError:
     pass
 
-
 if DEBUG:
     import django_heroku
+
     django_heroku.settings(locals())
