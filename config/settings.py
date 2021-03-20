@@ -10,11 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import sys
+import os
 
 import dj_database_url
 from pathlib import Path
 
-import os
 
 import cloudinary
 import django_heroku
@@ -100,6 +100,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 
 if sys.argv[1] == 'test':
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -187,7 +188,7 @@ try:
 except ImportError:
     pass
 
-if DEBUG:
-    import django_heroku
 
+if '/app' in os.environ['HOME']:
+    import django_heroku
     django_heroku.settings(locals())
