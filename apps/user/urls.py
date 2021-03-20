@@ -4,5 +4,5 @@ from django.urls import path
 import apps.user.views
 
 urlpatterns = [
-    path('<int:pk>', login_required(apps.user.views.show))
+    path('<int:pk>', login_required(apps.user.views.show), name='show')
 ]
