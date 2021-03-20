@@ -1,4 +1,5 @@
 gunicorn
+orator
 Pillow
 whitenoise
 cloudinary
