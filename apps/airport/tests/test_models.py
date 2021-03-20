@@ -1,6 +1,6 @@
-from datetime import datetime
-
 from django.test import TestCase
+from django.utils import timezone
+
 from apps.airport.models import Airport
 
 
@@ -15,7 +15,7 @@ class AirportModelTests(TestCase):
         # check if count one when a record was created
         airport = Airport(
             title='test_airport',
-            created_at=datetime.now(),
+            created_at=timezone.now(),
             rate=5
         )
         airport.save()
@@ -27,7 +27,7 @@ class AirportModelTests(TestCase):
         airport = Airport()
         title = 'Test Airport'
         body = 'Test description'
-        created_at = datetime.now()
+        created_at = timezone.now()
         rate = 5
 
         airport.title = title
