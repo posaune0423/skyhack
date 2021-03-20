@@ -191,11 +191,6 @@ a {
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.nav_container .wrapper {
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
 nav {
     display: flex;
     align-items: center;
@@ -269,6 +264,10 @@ header .hero_content {
 @media screen and (min-width: 481px) {
     nav ul {
         align-items: center;
+    }
+
+    .nav_container .wrapper {
+        margin: 0 20px;
     }
 
     .hero_content h1 {
