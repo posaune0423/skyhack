@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}SkyHack | Edit Profile {% endblock %}
 {% load static %}
+{% load cloudinary %}
 
 {% block body %}
     <div class="post-form-container">
@@ -10,15 +11,21 @@
                 {% csrf_token %}
                 {% for item in form %}
                     {% if item.name == 'thumbnail' %}
-                        <div class="custom-file mb-4">
-                            <input type="file"
-                                   class="custom-file-input"
-                                   id="customFile"
-                                   value="{{ item.value }}"
-                                   {% if item.field.required %}required{% endif %}
-                                   name="thumbnail">
-                            <label class="custom-file-label" for="customFile">Choose thumbniail image</label>
+                        <div class="text-center my-5">
+                            <img v-bind:src="url"
+                                 alt=""
+                                 class="rounded-circle img-cover thumbnail-upload"
+                                 @click="clickInput">
                         </div>
+                        <input type="file"
+                               class="d-none"
+                               id="thumnbnail-input"
+                               value="{{ item.value }}"
+                               {% if item.field.required %}required{% endif %}
+                               name="thumbnail"
+                               ref="preview"
+                               v-on:change="show">
+
                     {% elif item.name == 'bio' %}
                         <div class="input-group mb-4">
                             <div class="input-group-prepend">
