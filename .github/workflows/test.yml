@@ -46,6 +46,4 @@ jobs:
 
     - name: Run test
       run: |
-        # migrate if new migration file added
-        python manage.py migrate --noinput
         python manage.py test --debug-mode apps
