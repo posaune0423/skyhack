@@ -16,17 +16,24 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Airport',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=50, verbose_name='Airport Name')),
                 ('body', models.TextField(blank=True)),
                 ('country', django_countries.fields.CountryField(max_length=2)),
                 ('created_at', models.DateTimeField(verbose_name='date created')),
-                ('image1', cloudinary.models.CloudinaryField(blank=True, default='v1610122704/media/noimage_r2hsre.png', max_length=255, null=True, verbose_name='Image 1')),
-                ('image2', cloudinary.models.CloudinaryField(blank=True, default='v1610122704/media/noimage_r2hsre.png', max_length=255, null=True, verbose_name='Image 2')),
-                ('image3', cloudinary.models.CloudinaryField(blank=True, default='v1610122704/media/noimage_r2hsre.png', max_length=255, null=True, verbose_name='Image 3')),
-                ('image4', cloudinary.models.CloudinaryField(blank=True, default='v1610122704/media/noimage_r2hsre.png', max_length=255, null=True, verbose_name='Image 4')),
-                ('image5', cloudinary.models.CloudinaryField(blank=True, default='v1610122704/media/noimage_r2hsre.png', max_length=255, null=True, verbose_name='Image 5')),
-                ('rate', models.IntegerField(choices=[(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)])),
+                ('image1', cloudinary.models.CloudinaryField(
+                    blank=True, default='v1610122704/media/noimage_r2hsre.png', max_length=255, null=True, verbose_name='Image 1')),
+                ('image2', cloudinary.models.CloudinaryField(
+                    blank=True, default='v1610122704/media/noimage_r2hsre.png', max_length=255, null=True, verbose_name='Image 2')),
+                ('image3', cloudinary.models.CloudinaryField(
+                    blank=True, default='v1610122704/media/noimage_r2hsre.png', max_length=255, null=True, verbose_name='Image 3')),
+                ('image4', cloudinary.models.CloudinaryField(
+                    blank=True, default='v1610122704/media/noimage_r2hsre.png', max_length=255, null=True, verbose_name='Image 4')),
+                ('image5', cloudinary.models.CloudinaryField(
+                    blank=True, default='v1610122704/media/noimage_r2hsre.png', max_length=255, null=True, verbose_name='Image 5')),
+                ('rate', models.IntegerField(choices=[
+                 (1, 1), (2, 2), (3, 3), (4, 4), (5, 5)])),
             ],
             options={
                 'verbose_name_plural': 'Airports',
