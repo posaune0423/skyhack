@@ -30,7 +30,7 @@ jobs:
 
     - name:
       run: |
-        pycodestyle . | cut -d: -f1 | sort | uniq | xargs autopep8 -i
+        pycodestyle --max-line-length=127 . | cut -d: -f1 | sort | uniq | xargs autopep8 -i
 
     - name: Lint with flake8
       run: |
