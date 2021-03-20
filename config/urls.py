@@ -11,7 +11,7 @@ urlpatterns = [
     path('signup/', apps.user.views.Create.as_view()),
     path('login/', LoginView.as_view(template_name='login.html')),
     path('logout/', LogoutView.as_view()),
-    path('home/', apps.airport.views.Index.as_view()),
+    path('home/', apps.airport.views.Index.as_view(), name='index'),
     path('airports/', include('apps.airport.urls')),
     path('reviews/', include('apps.review.urls')),
     path('mypage/', include('apps.mypage.urls')),
