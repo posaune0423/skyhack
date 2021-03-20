@@ -3,6 +3,7 @@
 
 <head>
     {% load static %}
+    {% load cloudinary %}
     {% include "includes/head.html" %}
     {% block meta %}{% endblock %}
     <title>{% block title %}{% endblock %}</title>
@@ -67,7 +68,19 @@
                         'undo redo | formatselect | bold italic backcolor'
                     ],
                 },
-                initialValue: '<p>Write your review here</p>'
+                initialValue: '<p>Write your review here</p>',
+
+                url: "{% cloudinary_url user.thumbnail %}"
+            }
+        },
+        methods: {
+            show() {
+                const file = this.$refs.preview.files[0];
+                this.url = URL.createObjectURL(file);
+            },
+            clickInput() {
+                console.log(document.getElementById('thumnbnail-input'))
+                document.getElementById('thumnbnail-input').click();
             }
         }
     })
