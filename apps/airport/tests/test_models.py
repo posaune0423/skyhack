@@ -23,7 +23,6 @@ class AirportModelTests(TestCase):
         self.assertEqual(saved_posts.count(), 1)
 
     def test_saving_and_retrieving_airport(self):
-        """内容を指定してデータを保存し、すぐに取り出した時に保存した時と同じ値が返されることをテスト"""
         # check if saved value is same as ones before register
         airport = Airport()
         title = 'Test Airport'

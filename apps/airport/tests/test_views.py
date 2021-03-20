@@ -2,8 +2,8 @@ from django.test import TestCase
 from django.urls import reverse
 
 
-class IndexTests(TestCase):
-    # est Class for IndexView
+class ViewTests(TestCase):
+    # Test Class for IndexView
 
     def test_home(self):
         # check if status code = 200 when send GET request

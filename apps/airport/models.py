@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.contrib.auth import get_user_model
 from django.db import models
 from cloudinary.models import CloudinaryField
@@ -8,7 +9,7 @@ class Airport(models.Model):
     title = models.CharField('Airport Name', max_length=50)
     body = models.TextField(blank=True)
     country = CountryField()
-    created_at = models.DateTimeField('date created')
+    created_at = models.DateTimeField('date created', blank=True, default=timezone.now)
     image1 = CloudinaryField('Image 1', blank=True, null=True,
                              default='v1610122704/media/noimage_r2hsre.png')
     image2 = CloudinaryField('Image 2', blank=True, null=True,
@@ -19,7 +20,7 @@ class Airport(models.Model):
                              default='v1610122704/media/noimage_r2hsre.png')
     image5 = CloudinaryField('Image 5', blank=True, null=True,
                              default='v1610122704/media/noimage_r2hsre.png')
-    rate = models.IntegerField()
+    rate = models.IntegerField(blank=True, default=0)
 
     class Meta:
         db_table = 'airports'

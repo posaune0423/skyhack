@@ -3,7 +3,7 @@ from django.urls import resolve
 from apps.airport.views import Index, Search, show
 
 
-class TestUrls(TestCase):
+class UrlTests(TestCase):
 
     def test_airport_list_url(self):
         # check if list url is correct
