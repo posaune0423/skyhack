@@ -142,8 +142,8 @@ USE_TZ = True
 
 
 # Session conf
-SESSION_COOKIE_AGE = 3600 # expire in 1h
-SESSION_SAVE_EVERY_REQUEST = True # session expires since last request
+SESSION_COOKIE_AGE = 3600  # expire in 1h
+SESSION_SAVE_EVERY_REQUEST = True  # session expires since last request
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 
