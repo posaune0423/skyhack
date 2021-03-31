@@ -18,25 +18,25 @@
                     <form method="post" action="/signup/">{% csrf_token %}
                         <fieldset>
                             <div class="form-group">
-                                {{ form.username | add_class:"form-control" | attr:"placeholder:username" }}
+                                {{ form.username | add_class:"form-control" | attr:"placeholder:username" | attr:"autocomplete:username" }}
                                 {% for error in form.username.errors %}
                                     <p class="text-danger">{{ error }}</p>
                                 {% endfor %}
                             </div>
                             <div class="form-group">
-                                {{ form.email | add_class:"form-control" | attr:"placeholder:mail address" }}
+                                {{ form.email | add_class:"form-control" | attr:"placeholder:mail address" | attr:"autocomplete:email" }}
                                 {% for error in form.email.errors %}
                                     <p class="text-danger">{{ error }}</p>
                                 {% endfor %}
                             </div>
                             <div class="form-group">
-                                {{ form.password1 | add_class:"form-control" | attr:"placeholder:password" }}
+                                {{ form.password1 | add_class:"form-control" | attr:"placeholder:password" | attr:"autocomplete:current-password" }}
                                 {% for error in form.password.errors %}
                                     <p class="text-danger">{{ error }}</p>
                                 {% endfor %}
                             </div>
                             <div class="form-group">
-                                {{ form.password2 | add_class:"form-control" | attr:"placeholder:password confirmation" }}
+                                {{ form.password2 | add_class:"form-control" | attr:"placeholder:password confirmation" | attr:"autocomplete:current-password" }}
                                 {% for error in form.password2.errors %}
                                     <p class="text-danger">{{ error }}</p>
                                 {% endfor %}
