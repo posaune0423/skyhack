@@ -1,6 +1,6 @@
-from datetime import datetime
-
 from django.test import TestCase
+from django.utils import timezone
+
 from apps.airport.models import Airport
 
 
@@ -15,7 +15,7 @@ class AirportModelTests(TestCase):
         # check if count one when a record was created
         airport = Airport(
             title='test_airport',
-            created_at=datetime.now(),
+            created_at=timezone.now(),
             rate=5
         )
         airport.save()
@@ -23,12 +23,11 @@ class AirportModelTests(TestCase):
         self.assertEqual(saved_posts.count(), 1)
 
     def test_saving_and_retrieving_airport(self):
-        """内容を指定してデータを保存し、すぐに取り出した時に保存した時と同じ値が返されることをテスト"""
         # check if saved value is same as ones before register
         airport = Airport()
         title = 'Test Airport'
         body = 'Test description'
-        created_at = datetime.now()
+        created_at = timezone.now()
         rate = 5
 
         airport.title = title

@@ -16,6 +16,11 @@ jobs:
       matrix:
         python-version: [3.8, 3.9]
 
+    env:
+        CLOUD_NAME: ${{ secrets.CLOUD_NAME }}
+        API_KEY: ${{ secrets.API__KEY }}
+        API_SECRET: ${{ secrets.API_SECRET }}
+
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
@@ -28,7 +33,7 @@ jobs:
         pip install flake8 pytest pycodestyle autopep8
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: Format code following PEP8 
+    - name: Format code following PEP8
       run: |
         pycodestyle --max-line-length=127 . | cut -d: -f1 | sort | uniq | xargs autopep8 -i
 

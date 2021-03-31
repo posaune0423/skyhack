@@ -8,8 +8,8 @@ import apps.user.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('signup/', apps.user.views.Create.as_view()),
-    path('login/', LoginView.as_view(template_name='login.html')),
+    path('signup/', apps.user.views.Create.as_view(), name='signup'),
+    path('login/', LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', LogoutView.as_view()),
     path('home/', apps.airport.views.Index.as_view(), name='index'),
     path('airports/', include('apps.airport.urls')),

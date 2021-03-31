@@ -1,5 +1,7 @@
 # skyhack
 
+[![lint & test python](https://github.com/posaune0423/skyhack/actions/workflows/test.yml/badge.svg)](https://github.com/posaune0423/skyhack/actions/workflows/test.yml)
+
 This is my first Django application.
 
 This project is still on working,

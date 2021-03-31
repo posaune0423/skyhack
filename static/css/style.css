@@ -437,6 +437,7 @@ header .hero_content {
     .supporter_logo {
         display: flex;
         margin-top: 80px;
+        justify-content: center;
     }
 
     .supporter_container h2 {
