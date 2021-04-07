@@ -18,7 +18,7 @@ jobs:
 
     env:
         CLOUD_NAME: ${{ secrets.CLOUD_NAME }}
-        API_KEY: ${{ secrets.API__KEY }}
+        API_KEY: ${{ secrets.API_KEY }}
         API_SECRET: ${{ secrets.API_SECRET }}
 
     steps:
@@ -35,14 +35,14 @@ jobs:
 
     - name: Format code following PEP8
       run: |
-        pycodestyle --max-line-length=127 . | cut -d: -f1 | sort | uniq | xargs autopep8 -i
+        pycodestyle --max-line-length=127 . | cut -d: -f1 | sort | uniq | xargs autopep8 -i --max-line-length=127 --experimental
 
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # xit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --ignore F403,F401,E501
 
     - name: Run test
       run: |
