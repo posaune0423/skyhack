@@ -16,5 +16,5 @@ urlpatterns = [
     path('reviews/', include('apps.review.urls')),
     path('mypage/', include('apps.mypage.urls')),
     path('users/', include('apps.user.urls')),
-    path('', apps.airport.views.top),
+    path('', apps.airport.views.top, name='top'),
 ]
