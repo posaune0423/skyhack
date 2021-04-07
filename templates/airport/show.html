@@ -76,6 +76,19 @@
                 </div>
             </div>
         </div>
+        <div>
+            <div class="text-center">
+                <a href="https://twitter.com/share?url={{ request.get_host }}{{ request.get_full_path }}" target="_blank" rel="nofollow">
+                    <img src="{% static 'images/tweet.svg' %}" class="share-btn" alt="">
+                </a>
+                <a href="http://www.facebook.com/share.php?u={{ request.get_host }}{{ request.get_full_path }}&t={{ airport.title }}" target="_blank">
+                    <img src="{% static 'images/facebook.svg' %}" class="share-btn" alt="">
+                </a>
+                <a href="#">
+                    <img src="{% static 'images/other.svg' %}" class="share-btn" alt="">
+                </a>
+            </div>
+        </div>
     </div>
 
     {% if reviews %}
