@@ -1182,3 +1182,25 @@ footer .wrapper {
         height: 274px;
     }
 }
+
+
+/* share button */
+
+.share-btn:hover {
+    opacity: 0.8;
+}
+
+@media screen and (min-width: 481px) {
+    .share-btn {
+        width: 60px;
+        margin-bottom: -30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .share-btn {
+        width: 40px;
+        margin-bottom: -20px;
+        margin-right: 1rem;
+    }
+}
