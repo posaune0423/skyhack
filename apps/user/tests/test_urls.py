@@ -1,6 +1,5 @@
 from django.test import TestCase
 from django.urls import resolve
-from apps.user.views import show
 
 
 class UrlTests(TestCase):
